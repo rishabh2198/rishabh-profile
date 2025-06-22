@@ -11,8 +11,8 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Light gray background */
-            color: #334155; /* Darker text color for readability */
+            background-color: #e0f2fe; /* Very light blue background */
+            color: #1a202c; /* Darker text color for readability */
             padding: 1rem 2rem 3rem 2rem; /* General padding for the whole body */
             margin: 0;
         }
@@ -21,25 +21,27 @@
         .tab-button {
             padding: 0.75rem 1.25rem;
             border-radius: 0.5rem;
-            background-color: #e0e7ff; /* Light indigo */
-            color: #4338ca; /* Darker indigo text */
+            background-color: #bfdbfe; /* Light blue */
+            color: #1e40af; /* Darker blue text */
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             white-space: nowrap; /* Prevent text wrapping */
-            flex-shrink: 0; /* Prevent shrinking in flex container */
             border: 2px solid transparent; /* Default transparent border */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .tab-button.active {
-            background-color: #6366f1; /* Indigo */
+            background-color: #2563eb; /* Stronger blue */
             color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-color: #4338ca; /* Darker indigo border for active state */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25); /* More pronounced shadow */
+            border-color: #1d4ed8; /* Darker blue border for active state */
         }
 
         .tab-button:hover:not(.active) {
-            background-color: #c7d2fe; /* Lighter indigo on hover */
+            background-color: #93c5fd; /* Lighter blue on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         /* Content area for tabs */
@@ -60,7 +62,7 @@
             left: 50%;
             width: 4px;
             height: 100%;
-            background-color: #a78bfa;
+            background-color: #06b6d4; /* Vibrant cyan */
             transform: translateX(-50%);
             z-index: 0;
             border-radius: 2px;
@@ -81,9 +83,9 @@
         .timeline-dot-desktop {
             width: 32px;
             height: 32px;
-            background-color: #6366f1; /* Indigo color */
+            background-color: #2563eb; /* Strong blue color */
             border-radius: 50%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -110,9 +112,9 @@
         .timeline-mobile-dot {
             width: 32px;
             height: 32px;
-            background-color: #6366f1;
+            background-color: #2563eb; /* Strong blue */
             border-radius: 50%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -130,7 +132,7 @@
             left: 15px; /* Align with the center of the dot */
             width: 4px;
             height: calc(100% + 2.5rem); /* Extend to bottom of next item's margin */
-            background-color: #a78bfa;
+            background-color: #06b6d4; /* Vibrant cyan */
             z-index: 0;
             border-radius: 2px;
         }
@@ -190,6 +192,7 @@
                 width: 100%; /* Take full width of its 50% parent */
                 margin-left: 0; /* Remove mobile offset */
                 z-index: 5; /* Ensure content is above the line */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Added shadow to desktop content blocks */
             }
             /* Specific override for Current Role to be a single block */
             #current-role-content .current-role-block {
@@ -197,6 +200,7 @@
                 max-width: 800px; /* Optional: constrain width for better readability on very large screens */
                 margin: 0 auto; /* Center the block */
                 display: block !important; /* Override any hidden states from previous timeline styles */
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25); /* Stronger shadow for current role block */
             }
             #current-role-content .current-role-block .timeline-dot-desktop,
             #current-role-content .current-role-block .timeline-mobile-wrapper {
@@ -220,6 +224,7 @@
                 width: 100%;
                 margin: 0;
                 padding: 1.5rem; /* Default padding for content blocks */
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25); /* Stronger shadow for current role block */
             }
             #current-role-content .current-role-block ul {
                 list-style-type: none; /* Remove default bullets */
@@ -236,7 +241,7 @@
     <!-- Main Profile Content -->
     <div id="profile-content" class="max-w-6xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
         <!-- Header Section: Contact Info and Professional Summary -->
-        <header class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white p-6 sm:p-8 rounded-t-xl">
+        <header class="bg-gradient-to-r from-blue-500 to-cyan-600 text-white p-6 sm:p-8 rounded-t-xl">
             <h1 class="text-4xl sm:text-5xl font-extrabold text-center mb-2 tracking-tight">RISHABH SINGLA</h1>
             <p class="text-lg sm:text-xl text-center mb-4 opacity-90">A generalizing specialist with 14+ years of experience in providing solutions and driving growth across sectors.</p>
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-sm sm:text-base">
@@ -256,7 +261,7 @@
         </header>
 
         <!-- Main Content Area -->
-        <main class="p-6 sm:p-8 md:p-10 lg:p-12">
+        <main class="p-6 sm:p-8 md:p-10 lg:p-12 bg-white rounded-b-xl shadow-inner">
 
             <!-- Professional Journey Section (Timeline) -->
             <section class="mb-12 relative pb-8">
@@ -271,21 +276,21 @@
                 <div id="timeline-tab-contents">
                     <!-- Current Role Tab Content (Single Block) -->
                     <div class="tab-content active" id="current-role-content">
-                        <div class="bg-indigo-50 p-6 rounded-lg shadow-md w-full current-role-block">
+                        <div class="bg-blue-100 p-6 rounded-lg shadow-md w-full current-role-block">
                             <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 text-center">PRINCIPAL ARCHITECT</h3>
                             <p class="text-lg sm:text-xl font-medium text-gray-700 mb-4 text-center">UNIVO Education (P) Ltd</p>
-                            <p class="text-md sm:text-lg font-semibold text-indigo-700 mb-4 text-center">Aug 2024 - Present</p>
+                            <p class="text-md sm:text-lg font-semibold text-blue-700 mb-4 text-center">Aug 2024 - Present</p>
                             <h4 class="text-xl font-bold text-gray-800 mt-6 mb-2 flex items-center">
                                 <!-- Icon for Key Responsibilities header -->
-                                <svg class="w-6 h-6 mr-2 text-indigo-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="w-6 h-6 mr-2 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" clip-rule="evenodd"></path>
                                 </svg>
                                 Key Responsibilities:
                             </h4>
-                            <ul class="text-gray-600 text-base sm:text-lg space-y-3 pl-0">
+                            <ul class="text-gray-700 text-base sm:text-lg space-y-3 pl-0">
                                 <li class="flex items-start">
                                     <!-- Icon for Complete Contact Center Management -->
-                                    <svg class="w-5 h-5 mr-2 mt-1 text-indigo-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="w-5 h-5 mr-2 mt-1 text-cyan-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.977-1.405L2 17l1.109-3.415A9.742 9.742 0 012 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9a1 1 0 100-2 1 1 0 000 2zm.059 2.25l-.262-.262a2 2 0 01-.166-2.585L7 8c.365-.733.993-1.361 1.726-1.726.733-.365 1.564-.492 2.408-.387a2 2 0 012.355 1.542l.262.262A2 2 0 0115 11l-.059.25a2 2 0 01-2.355-1.542zM13 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
                                     </svg>
                                     <div>
@@ -293,21 +298,21 @@
                                         <ul class="mt-1 ml-5 space-y-2 pl-0">
                                             <li class="flex items-start">
                                                 <!-- Icon for CRM -->
-                                                <svg class="w-4 h-4 mr-1 mt-1 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="w-4 h-4 mr-1 mt-1 text-sky-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
                                                 </svg>
                                                 <div><strong class="font-medium">CRM:</strong> optimised architecture; reduced request processing time by 60%</div>
                                             </li>
                                             <li class="flex items-start">
                                                 <!-- Icon for Dialer -->
-                                                <svg class="w-4 h-4 mr-1 mt-1 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="w-4 h-4 mr-1 mt-1 text-sky-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06L6.5 9.146a1 1 0 00-.451 1.059l.685 1.849a1 1 0 001.094 1.223l3.228-.609a1 1 0 001.094-1.223l-.685-1.849a1 1 0 00-.451-1.059l1.458-.73a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
                                                 </svg>
                                                 <div><strong class="font-medium">Dialer:</strong> Implemented new dialer and revamped business process; increased churn rate and speed-to-dial by 80%+</div>
                                             </li>
                                             <li class="flex items-start">
                                                 <!-- Icon for Gen AI Initiatives -->
-                                                <svg class="w-4 h-4 mr-1 mt-1 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="w-4 h-4 mr-1 mt-1 text-sky-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
                                                 </svg>
                                                 <div>
@@ -344,15 +349,15 @@
                             </ul>
                             <h4 class="text-xl font-bold text-gray-800 mt-6 mb-2 flex items-center">
                                 <!-- Icon for Achievement header -->
-                                <svg class="w-6 h-6 mr-2 text-indigo-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="w-6 h-6 mr-2 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                                 </svg>
                                 Achievement
                             </h4>
-                            <ul class="text-gray-600 text-base sm:text-lg space-y-2 pl-0">
+                            <ul class="text-gray-700 text-base sm:text-lg space-y-2 pl-0">
                                 <li class="flex items-start">
                                     <!-- Icon for specific achievement -->
-                                    <svg class="w-5 h-5 mr-2 mt-1 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="w-5 h-5 mr-2 mt-1 text-emerald-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-7-8a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm6-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H9a1 1 0 01-1-1V8zm-6 4a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm6 0a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H9a1 1 0 01-1-1v-2z" clip-rule="evenodd"></path>
                                     </svg>
                                     <div>Awarded for exemplary performance for 2 consecutive quarters.</div>
@@ -381,22 +386,22 @@
                                               <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
                                             </svg>
                                         </div>
-                                        <span class="text-lg font-semibold text-indigo-700">Jul 2023 - Aug 2024</span>
+                                        <span class="text-lg font-semibold text-blue-700">Jul 2023 - Aug 2024</span>
                                     </div>
-                                    <div class="timeline-content-mobile md:hidden bg-indigo-50 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-mobile md:hidden bg-blue-100 p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">BUSINESS CONSULTANT</h3>
                                         <p class="text-md font-medium text-gray-700">TechMatrix IT Consulting (P) Ltd</p>
-                                        <ul class="list-none text-gray-600 mt-2 pl-0">
+                                        <ul class="list-none text-gray-700 mt-2 pl-0">
                                             <li>Formally appreciated by all customers for outstanding contribution.</li>
                                         </ul>
                                     </div>
 
                                     <!-- Desktop View -->
-                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-indigo-700">Jul 2023 - Aug 2024</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-indigo-50 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jul 2023 - Aug 2024</div>
+                                    <div class="timeline-content-desktop hidden md:block bg-blue-100 p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">BUSINESS CONSULTANT</h3>
                                         <p class="text-md font-medium text-gray-700">TechMatrix IT Consulting (P) Ltd</p>
-                                        <ul class="list-none text-gray-600 mt-2 pl-0">
+                                        <ul class="list-none text-gray-700 mt-2 pl-0">
                                             <li>Formally appreciated by all customers for outstanding contribution.</li>
                                         </ul>
                                     </div>
@@ -419,22 +424,22 @@
                                               <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
                                             </svg>
                                         </div>
-                                        <span class="text-lg font-semibold text-indigo-700">Aug 2021 - Jun 2023</span>
+                                        <span class="text-lg font-semibold text-blue-700">Aug 2021 - Jun 2023</span>
                                     </div>
-                                    <div class="timeline-content-mobile md:hidden bg-indigo-50 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-mobile md:hidden bg-blue-100 p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">PRODUCT MANAGER</h3>
                                         <p class="text-md font-medium text-gray-700">OLX Autos</p>
-                                        <ul class="list-none text-gray-600 mt-2 pl-0">
+                                        <ul class="list-none text-gray-700 mt-2 pl-0">
                                             <li>Received cash prize & appreciation for CRM launch across 2 countries.</li>
                                         </ul>
                                     </div>
 
                                     <!-- Desktop View -->
-                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-indigo-700">Aug 2021 - Jun 2023</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-indigo-50 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Aug 2021 - Jun 2023</div>
+                                    <div class="timeline-content-desktop hidden md:block bg-blue-100 p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">PRODUCT MANAGER</h3>
                                         <p class="text-md font-medium text-gray-700">OLX Autos</p>
-                                        <ul class="list-none text-gray-600 mt-2 pl-0">
+                                        <ul class="list-none text-gray-700 mt-2 pl-0">
                                             <li>Received cash prize & appreciation for CRM launch across 2 countries.</li>
                                         </ul>
                                     </div>
@@ -459,22 +464,22 @@
                                               <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
                                             </svg>
                                         </div>
-                                        <span class="text-lg font-semibold text-indigo-700">May 2021 - Aug 2021</span>
+                                        <span class="text-lg font-semibold text-blue-700">May 2021 - Aug 2021</span>
                                     </div>
-                                    <div class="timeline-content-mobile md:hidden bg-indigo-50 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-mobile md:hidden bg-blue-100 p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">SENIOR MANAGER - MARTECH</h3>
                                         <p class="text-md font-medium text-gray-700">PVR Limited</p>
-                                        <ul class="list-none text-gray-600 mt-2 pl-0">
+                                        <ul class="list-none text-gray-700 mt-2 pl-0">
                                             <li>Unblocked and took the project live in record time.</li>
                                         </ul>
                                     </div>
 
                                     <!-- Desktop View -->
-                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-indigo-700">May 2021 - Aug 2021</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-indigo-50 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">May 2021 - Aug 2021</div>
+                                    <div class="timeline-content-desktop hidden md:block bg-blue-100 p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">SENIOR MANAGER - MARTECH</h3>
                                         <p class="text-md font-medium text-gray-700">PVR Limited</p>
-                                        <ul class="list-none text-gray-600 mt-2 pl-0">
+                                        <ul class="list-none text-gray-700 mt-2 pl-0">
                                             <li>Unblocked and took the project live in record time.</li>
                                         </ul>
                                     </div>
@@ -503,22 +508,22 @@
                                               <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
                                             </svg>
                                         </div>
-                                        <span class="text-lg font-semibold text-indigo-700">Jun 2016 - Apr 2021</span>
+                                        <span class="text-lg font-semibold text-blue-700">Jun 2016 - Apr 2021</span>
                                     </div>
-                                    <div class="timeline-content-mobile md:hidden bg-indigo-50 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-mobile md:hidden bg-blue-100 p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">MANAGER - BUSINESS</h3>
                                         <p class="text-md font-medium text-gray-700">NIIT Ltd. - Career Education Business</p>
-                                        <ul class="list-none text-gray-600 mt-2 pl-0">
+                                        <ul class="list-none text-gray-700 mt-2 pl-0">
                                             <li>Part of core team of CEO & President.</li>
                                         </ul>
                                     </div>
 
                                     <!-- Desktop View -->
-                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-indigo-700">Jun 2016 - Apr 2021</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-indigo-50 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jun 2016 - Apr 2021</div>
+                                    <div class="timeline-content-desktop hidden md:block bg-blue-100 p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">MANAGER - BUSINESS</h3>
                                         <p class="text-md font-medium text-gray-700">NIIT Ltd. - Career Education Business</p>
-                                        <ul class="list-none text-gray-600 mt-2 pl-0">
+                                        <ul class="list-none text-gray-700 mt-2 pl-0">
                                             <li>Part of core team of CEO & President.</li>
                                         </ul>
                                     </div>
@@ -541,16 +546,16 @@
                                                 <path d="M10 2a4 4 0 00-4 4v2.5a.5.5 0 00.5.5H8v1.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V9h2a.5.5 0 00.5-.5V6a4 4 0 00-4-4zm0 2a2 2 0 00-2 2v.5h4V6a2 2 0 00-2-2zM4.5 10a.5.5 0 01.5-.5h10a.5.5 0 01.5.5v6.5a.5.5 0 01-.5.5H5a.5.5 0 01-.5-.5V10zM10 14.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
                                             </svg>
                                         </div>
-                                        <span class="text-lg font-semibold text-indigo-700">Jun 2015 - Jul 2016</span>
+                                        <span class="text-lg font-semibold text-blue-700">Jun 2015 - Jul 2016</span>
                                     </div>
-                                    <div class="timeline-content-mobile md:hidden bg-purple-50 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-mobile md:hidden bg-blue-100 p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">POST GRADUATE DIPLOMA IN GENERAL MANAGEMENT (MBA)</h3>
                                         <p class="text-md font-medium text-gray-700">XLRI - Jamshedpur</p>
                                     </div>
 
                                     <!-- Desktop View -->
-                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-indigo-700">Jun 2015 - Jul 2016</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-purple-50 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jun 2015 - Jul 2016</div>
+                                    <div class="timeline-content-desktop hidden md:block bg-blue-100 p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">POST GRADUATE DIPLOMA IN GENERAL MANAGEMENT (MBA)</h3>
                                         <p class="text-md font-medium text-gray-700">XLRI - Jamshedpur</p>
                                     </div>
@@ -575,22 +580,22 @@
                                               <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
                                             </svg>
                                         </div>
-                                        <span class="text-lg font-semibold text-indigo-700">Sep 2014 - May 2015</span>
+                                        <span class="text-lg font-semibold text-blue-700">Sep 2014 - May 2015</span>
                                     </div>
-                                    <div class="timeline-content-mobile md:hidden bg-indigo-50 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-mobile md:hidden bg-blue-100 p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
                                         <p class="text-md font-medium text-gray-700">Rays Power Experts (P) Ltd</p>
-                                        <ul class="list-none text-gray-600 mt-2 pl-0">
+                                        <ul class="list-none text-gray-700 mt-2 pl-0">
                                             <li>Performance-based incentive within 3 months.</li>
                                         </ul>
                                     </div>
 
                                     <!-- Desktop View -->
-                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-indigo-700">Sep 2014 - May 2015</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-indigo-50 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Sep 2014 - May 2015</div>
+                                    <div class="timeline-content-desktop hidden md:block bg-blue-100 p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
                                         <p class="text-md font-medium text-gray-700">Rays Power Experts (P) Ltd</p>
-                                        <ul class="list-none text-gray-600 mt-2 pl-0">
+                                        <ul class="list-none text-gray-700 mt-2 pl-0">
                                             <li>Performance-based incentive within 3 months.</li>
                                         </ul>
                                     </div>
@@ -613,22 +618,22 @@
                                               <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
                                             </svg>
                                         </div>
-                                        <span class="text-lg font-semibold text-indigo-700">Jul 2010 - Aug 2014</span>
+                                        <span class="text-lg font-semibold text-blue-700">Jul 2010 - Aug 2014</span>
                                     </div>
-                                    <div class="timeline-content-mobile md:hidden bg-indigo-50 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-mobile md:hidden bg-blue-100 p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
                                         <p class="text-md font-medium text-gray-700">NKG Infrastructures Ltd</p>
-                                        <ul class="list-none text-gray-600 mt-2 pl-0">
+                                        <ul class="list-none text-gray-700 mt-2 pl-0">
                                             <li>Promoted within 9 months and multiple performance incentives.</li>
                                         </ul>
                                     </div>
 
                                     <!-- Desktop View -->
-                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-indigo-700">Jul 2010 - Aug 2014</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-indigo-50 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jul 2010 - Aug 2014</div>
+                                    <div class="timeline-content-desktop hidden md:block bg-blue-100 p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
                                         <p class="text-md font-medium text-gray-700">NKG Infrastructures Ltd</p>
-                                        <ul class="list-none text-gray-600 mt-2 pl-0">
+                                        <ul class="list-none text-gray-700 mt-2 pl-0">
                                             <li>Promoted within 9 months and multiple performance incentives.</li>
                                         </ul>
                                     </div>
@@ -651,18 +656,18 @@
                                         <div class="timeline-mobile-dot">
                                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                                                 <path d="M10 2a4 4 0 00-4 4v2.5a.5.5 0 00.5.5H8v1.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V9h2a.5.5 0 00.5-.5V6a4 4 0 00-4-4zm0 2a2 2 0 00-2 2v.5h4V6a2 2 0 00-2-2zM4.5 10a.5.5 0 01.5-.5h10a.5.5 0 01.5.5v6.5a.5.5 0 01-.5.5H5a.5.5 0 01-.5-.5V10zM10 14.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-                                            </svg>
+                                    </svg>
                                         </div>
-                                        <span class="text-lg font-semibold text-indigo-700">Jun 2006 - May 2010</span>
+                                        <span class="text-lg font-semibold text-blue-700">Jun 2006 - May 2010</span>
                                     </div>
-                                    <div class="timeline-content-mobile md:hidden bg-purple-50 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-mobile md:hidden bg-blue-100 p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">BACHELOR OF TECHNOLOGY (CIVIL ENGINEERING)</h3>
                                         <p class="text-md font-medium text-gray-700">IIT Roorkee</p>
                                     </div>
 
                                     <!-- Desktop View -->
-                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-indigo-700">Jun 2006 - May 2010</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-purple-50 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jun 2006 - May 2010</div>
+                                    <div class="timeline-content-desktop hidden md:block bg-blue-100 p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">BACHELOR OF TECHNOLOGY (CIVIL ENGINEERING)</h3>
                                         <p class="text-md font-medium text-gray-700">IIT Roorkee</p>
                                     </div>
@@ -677,17 +682,17 @@
             <section class="mb-12">
                 <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Certifications</h2>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Product-led Certified</span>
-                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">AI for Product Management</span>
-                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Product Analytics Certified</span>
-                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Agile Project Management</span>
-                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">'Me to We' by Dale Carnegie</span>
-                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Google Analytics (Beginners)</span>
-                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Six Sigma Green Belt, KPMG</span>
-                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Business Analytics with Excel</span>
-                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Digital Transformation</span>
-                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Introduction to AI</span>
-                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Introduction to Data Analytics</span>
+                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Product-led Certified</span>
+                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">AI for Product Management</span>
+                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Product Analytics Certified</span>
+                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Agile Project Management</span>
+                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">'Me to We' by Dale Carnegie</span>
+                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Google Analytics (Beginners)</span>
+                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Six Sigma Green Belt, KPMG</span>
+                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Business Analytics with Excel</span>
+                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Digital Transformation</span>
+                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Introduction to AI</span>
+                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Introduction to Data Analytics</span>
                 </div>
             </section>
 
@@ -695,29 +700,29 @@
             <section>
                 <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Tools & Platforms</h2>
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm text-center">
-                        <p class="text-xs sm:text-sm md:text-base font-medium text-gray-800">Salesforce (Sales, Service, Marketing & Data Cloud)</p>
+                    <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
+                        <p class="text-xs sm:text-sm md:text-base font-medium text-teal-800">Salesforce (Sales, Service, Marketing & Data Cloud)</p>
                     </div>
-                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm text-center">
-                        <p class="text-xs sm:text-sm md:text-base font-medium text-gray-800">LeadSquared</p>
+                    <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
+                        <p class="text-xs sm:text-sm md:text-base font-medium text-teal-800">LeadSquared</p>
                     </div>
-                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm text-center">
-                        <p class="text-xs sm:text-sm md:text-base font-medium text-gray-800">Google Analytics</p>
+                    <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
+                        <p class="text-xs sm:text-sm md:text-base font-medium text-teal-800">Google Analytics</p>
                     </div>
-                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm text-center">
-                        <p class="text-xs sm:text-sm md:text-base font-medium text-gray-800">SQL</p>
+                    <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
+                        <p class="text-xs sm:text-sm md:text-base font-medium text-teal-800">SQL</p>
                     </div>
-                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm text-center">
-                        <p class="text-xs sm:text-sm md:text-base font-medium text-gray-800">HTML (Basics)</p>
+                    <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
+                        <p class="text-xs sm:text-sm md:text-base font-medium text-teal-800">HTML (Basics)</p>
                     </div>
-                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm text-center">
-                        <p class="text-xs sm:text-sm md:text-base font-medium text-gray-800">Jira & Confluence</p>
+                    <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
+                        <p class="text-xs sm:text-sm md:text-base font-medium text-teal-800">Jira & Confluence</p>
                     </div>
-                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm text-center">
-                        <p class="text-xs sm:text-sm md:text-base font-medium text-gray-800">Miro, Lucid, Draw.io</p>
+                    <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
+                        <p class="text-xs sm:text-sm md:text-base font-medium text-teal-800">Miro, Lucid, Draw.io</p>
                     </div>
-                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm text-center">
-                        <p class="text-xs sm:text-sm md:text-base font-medium text-gray-800">Google & Microsoft Office suite</p>
+                    <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
+                        <p class="text-xs sm:text-sm md:text-base font-medium text-teal-800">Google & Microsoft Office suite</p>
                     </div>
                 </div>
             </section>
