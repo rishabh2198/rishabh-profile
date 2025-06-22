@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishabh Singla - Professional Summary</title>
+    <!-- Tailwind CSS CDN for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter for a clean, professional look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+            color: #334155; /* Darker text color for readability */
+        }
+        /* Base styles for timeline line (mobile-first approach) */
+        .timeline-line {
+            width: 4px;
+            background-color: #6366f1; /* Indigo color for the line */
+            position: absolute;
+            left: 20px; /* Aligned to the left for mobile */
+            top: 72px; /* Starts after the h2 and its margin-bottom (mb-8 = 32px) */
+            height: calc(100% - 72px); /* Adjust height to fill from the new top position */
+            z-index: 0; /* Ensure line is behind content */
+            border-radius: 2px;
+        }
+
+        /* Base styles for timeline dot (mobile-first approach) */
+        .timeline-dot {
+            position: absolute;
+            width: 32px; /* Increased size for icons */
+            height: 32px; /* Increased size for icons */
+            background-color: #6366f1; /* Indigo color for the dot */
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            left: 14px; /* Aligned with the left timeline line for mobile */
+            transform: translateY(-50%); /* Vertically center on its own line */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10; /* Ensure dot is above the line */
+            color: white; /* Icon color */
+        }
+
+        /* Adjustments for medium screens and up (md:) - Desktop layout */
+        @media (min-width: 768px) {
+            .timeline-line {
+                left: 50%; /* Center the line for desktop */
+                transform: translateX(-50%);
+            }
+            .timeline-dot {
+                left: 50%; /* Center the dot on the line for desktop */
+                transform: translate(-50%, -50%); /* Vertically and horizontally center on the line */
+            }
+
+            /* Adjustments for content alignment around the centered timeline */
+            .timeline-item > .timeline-date { /* This targets the date column */
+                width: 50%; /* Take half width on desktop */
+                padding-right: 2rem; /* Consistent padding */
+                text-align: right; /* Default align right for left-side content */
+            }
+
+            .timeline-item > .timeline-content { /* This targets the content column */
+                width: 50%; /* Take half width on desktop */
+                padding-left: 2rem; /* Consistent padding */
+                margin-left: 0; /* Remove mobile-specific margin */
+            }
+
+            /* Reverse layout for alternating items on desktop */
+            .timeline-item.md\:flex-row-reverse > .timeline-date {
+                text-align: left; /* Date aligns left on reverse side */
+                padding-left: 2rem;
+                padding-right: 0;
+            }
+            .timeline-item.md\:flex-row-reverse > .timeline-content {
+                padding-right: 2rem;
+                padding-left: 0;
+            }
+        }
+
+        /* Mobile specific adjustments for timeline content */
+        .timeline-item {
+            flex-direction: column; /* Stack items vertically on mobile */
+            align-items: flex-start;
+        }
+        .timeline-content {
+            width: calc(100% - 40px); /* Adjust width for mobile timeline line */
+            margin-left: 40px; /* Space for the line and dot on mobile */
+        }
+        .timeline-date {
+            text-align: left; /* Date always aligns left on mobile */
+            width: auto; /* Auto width */
+            padding-right: 0;
+        }
+
+    </style>
+</head>
+<body class="p-4 sm:p-8 md:p-12 lg:p-16">
+    <div class="max-w-6xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+        <!-- Header Section: Contact Info and Professional Summary -->
+        <header class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white p-6 sm:p-8 rounded-t-xl">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-center mb-2 tracking-tight">RISHABH SINGLA</h1>
+            <p class="text-lg sm:text-xl text-center mb-4 opacity-90">A generalizing specialist with 14+ years of experience in providing solutions and driving growth across sectors.</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-sm sm:text-base">
+                <a href="tel:+919953069007" class="flex items-center hover:underline">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.103 6.103l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                    +91-9953069007
+                </a>
+                <a href="mailto:rishabh2198@gmail.com" class="flex items-center hover:underline">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                    rishabh2198@gmail.com
+                </a>
+                <a href="https://linkedin.com/in/rishabhsingla1" target="_blank" rel="noopener noreferrer" class="flex items-center hover:underline">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.3 0H3.7C1.65 0 0 1.65 0 3.7v12.6C0 18.35 1.65 20 3.7 20h12.6c2.05 0 3.7-1.65 3.7-3.7V3.7C20 1.65 18.35 0 16.3 0zM6 17H3V7h3v10zM4.5 5.5c-.83 0-1.5-.67-1.5-1.5S3.67 2.5 4.5 2.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12.5 11.5h-3V11.5c0-.83-.67-1.5-1.5-1.5h-1c-.83 0-1.5.67-1.5 1.5v5.5h-3V7h3v1c.56-.88 1.87-1.5 3-1.5 2.21 0 4 1.79 4 4v7z" clip-rule="evenodd"></path></svg>
+                    LinkedIn Profile
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="p-6 sm:p-8 md:p-10 lg:p-12">
+
+            <!-- Professional Journey Section (Timeline) -->
+            <section class="mb-12 relative pb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Professional Journey</h2>
+                <!-- Timeline Line -->
+                <div class="timeline-line"></div>
+
+                <div class="relative z-10">
+                    <!-- IIT Roorkee (Education) -->
+                    <div class="flex flex-col md:flex-row items-center md:items-start mb-10 timeline-item">
+                        <div class="timeline-date md:w-1/2 md:pr-8 text-left md:text-right">
+                            <span class="text-lg font-semibold text-indigo-700">2006 - 10</span>
+                        </div>
+                        <div class="timeline-dot">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path d="M10 2a4 4 0 00-4 4v2.5a.5.5 0 00.5.5H8v1.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V9h2a.5.5 0 00.5-.5V6a4 4 0 00-4-4zm0 2a2 2 0 00-2 2v.5h4V6a2 2 0 00-2-2zM4.5 10a.5.5 0 01.5-.5h10a.5.5 0 01.5.5v6.5a.5.5 0 01-.5.5H5a.5.5 0 01-.5-.5V10zM10 14.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                            </svg>
+                        </div>
+                        <div class="timeline-content md:w-1/2 md:pl-8 mt-4 md:mt-0 bg-purple-50 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold text-gray-900">BACHELOR OF TECHNOLOGY (CIVIL ENGINEERING)</h3>
+                            <p class="text-md font-medium text-gray-700">IIT Roorkee</p>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT MANAGER | NKG Infrastructures Ltd -->
+                    <div class="flex flex-col md:flex-row-reverse items-center md:items-start mb-10 timeline-item">
+                        <div class="timeline-date md:w-1/2 md:pl-8 text-left">
+                            <span class="text-lg font-semibold text-indigo-700">Jul 2010 - Aug 2014</span>
+                        </div>
+                        <div class="timeline-dot">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="timeline-content md:w-1/2 md:pr-8 mt-4 md:mt-0 bg-indigo-50 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
+                            <p class="text-md font-medium text-gray-700">NKG Infrastructures Ltd</p>
+                            <ul class="list-disc list-inside text-gray-600 mt-2">
+                                <li>Promotion and multiple performance-based incentives.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT MANAGER | Rays Power Experts (P) Ltd -->
+                    <div class="flex flex-col md:flex-row items-center md:items-start mb-10 timeline-item">
+                        <div class="timeline-date md:w-1/2 md:pr-8 text-left md:text-right">
+                            <span class="text-lg font-semibold text-indigo-700">Sep 2014 - May 2015</span>
+                        </div>
+                        <div class="timeline-dot">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="timeline-content md:w-1/2 md:pl-8 mt-4 md:mt-0 bg-indigo-50 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
+                            <p class="text-md font-medium text-gray-700">Rays Power Experts (P) Ltd</p>
+                            <ul class="list-disc list-inside text-gray-600 mt-2">
+                                <li>Issued performance-based incentive within 3 months.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- XLRI - Jamshedpur (Education) -->
+                    <div class="flex flex-col md:flex-row-reverse items-center md:items-start mb-10 timeline-item">
+                        <div class="timeline-date md:w-1/2 md:pl-8 text-left">
+                            <span class="text-lg font-semibold text-indigo-700">2015 - 16</span>
+                        </div>
+                        <div class="timeline-dot">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path d="M10 2a4 4 0 00-4 4v2.5a.5.5 0 00.5.5H8v1.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V9h2a.5.5 0 00.5-.5V6a4 4 0 00-4-4zm0 2a2 2 0 00-2 2v.5h4V6a2 2 0 00-2-2zM4.5 10a.5.5 0 01.5-.5h10a.5.5 0 01.5.5v6.5a.5.5 0 01-.5.5H5a.5.5 0 01-.5-.5V10zM10 14.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                            </svg>
+                        </div>
+                        <div class="timeline-content md:w-1/2 md:pr-8 mt-4 md:mt-0 bg-purple-50 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold text-gray-900">POST GRADUATE DIPLOMA IN GENERAL MANAGEMENT (MBA)</h3>
+                            <p class="text-md font-medium text-gray-700">XLRI - Jamshedpur</p>
+                        </div>
+                    </div>
+
+                    <!-- MANAGER - BUSINESS | NIIT Ltd. - Career Education Business -->
+                    <div class="flex flex-col md:flex-row items-center md:items-start mb-10 timeline-item">
+                        <div class="timeline-date md:w-1/2 md:pr-8 text-left md:text-right">
+                            <span class="text-lg font-semibold text-indigo-700">Jun 2016 - Apr 2021</span>
+                        </div>
+                        <div class="timeline-dot">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="timeline-content md:w-1/2 md:pl-8 mt-4 md:mt-0 bg-indigo-50 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold text-gray-900">MANAGER - BUSINESS</h3>
+                            <p class="text-md font-medium text-gray-700">NIIT Ltd. - Career Education Business</p>
+                            <ul class="list-disc list-inside text-gray-600 mt-2">
+                                <li>Part of core team of CEO & President.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- SENIOR MANAGER - MARTECH | PVR Limited -->
+                    <div class="flex flex-col md:flex-row-reverse items-center md:items-start mb-10 timeline-item">
+                        <div class="timeline-date md:w-1/2 md:pl-8 text-left">
+                            <span class="text-lg font-semibold text-indigo-700">May 2021 - Aug 2021</span>
+                        </div>
+                        <div class="timeline-dot">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="timeline-content md:w-1/2 md:pr-8 mt-4 md:mt-0 bg-indigo-50 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold text-gray-900">SENIOR MANAGER - MARTECH</h3>
+                            <p class="text-md font-medium text-gray-700">PVR Limited</p>
+                            <ul class="list-disc list-inside text-gray-600 mt-2">
+                                <li>Unblocked and took the project live in record time.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCT MANAGER | OLX Autos -->
+                    <div class="flex flex-col md:flex-row items-center md:items-start mb-10 timeline-item">
+                        <div class="timeline-date md:w-1/2 md:pr-8 text-left md:text-right">
+                            <span class="text-lg font-semibold text-indigo-700">Aug 2021 - Jun 2023</span>
+                        </div>
+                        <div class="timeline-dot">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="timeline-content md:w-1/2 md:pl-8 mt-4 md:mt-0 bg-indigo-50 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold text-gray-900">PRODUCT MANAGER</h3>
+                            <p class="text-md font-medium text-gray-700">OLX Autos</p>
+                            <ul class="list-disc list-inside text-gray-600 mt-2">
+                                <li>Received cash prize & appreciation for CRM launch across 2 countries.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- BUSINESS CONSULTANT | TechMatrix IT Consulting (P) Ltd -->
+                    <div class="flex flex-col md:flex-row-reverse items-center md:items-start mb-10 timeline-item">
+                        <div class="timeline-date md:w-1/2 md:pl-8 text-left">
+                            <span class="text-lg font-semibold text-indigo-700">Jul 2023 - Aug 2024</span>
+                        </div>
+                        <div class="timeline-dot">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="timeline-content md:w-1/2 md:pr-8 mt-4 md:mt-0 bg-indigo-50 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold text-gray-900">BUSINESS CONSULTANT</h3>
+                            <p class="text-md font-medium text-gray-700">TechMatrix IT Consulting (P) Ltd</p>
+                            <ul class="list-disc list-inside text-gray-600 mt-2">
+                                <li>Formally appreciated by all customers for outstanding contribution.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- PRINCIPAL ARCHITECT | UNIVO Education (P) Ltd -->
+                    <div class="flex flex-col md:flex-row items-center md:items-start mb-10 timeline-item">
+                        <div class="timeline-date md:w-1/2 md:pr-8 text-left md:text-right">
+                            <span class="text-lg font-semibold text-indigo-700">Aug 2024 - Present</span>
+                        </div>
+                        <div class="timeline-dot">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="timeline-content md:w-1/2 md:pl-8 mt-4 md:mt-0 bg-indigo-50 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold text-gray-900">PRINCIPAL ARCHITECT</h3>
+                            <p class="text-md font-medium text-gray-700">UNIVO Education (P) Ltd</p>
+                            <ul class="list-disc list-inside text-gray-600 mt-2">
+                                <li>Awarded for exemplary performance for 2 consecutive quarters.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Certifications Section -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Certifications</h2>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Product-led Certified</span>
+                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">AI for Product Management</span>
+                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Product Analytics Certified</span>
+                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Agile Project Management</span>
+                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">'Me to We' by Dale Carnegie</span>
+                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Google Analytics (Beginners)</span>
+                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Six Sigma Green Belt, KPMG</span>
+                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Business Analytics with Excel</span>
+                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Digital Transformation</span>
+                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Introduction to AI</span>
+                    <span class="bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-green-200 transition-colors duration-200">Introduction to Data Analytics</span>
+                </div>
+            </section>
+
+            <!-- Tools & Platforms Section -->
+            <section>
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Tools & Platforms</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm text-center">
+                        <p class="text-base font-medium text-gray-800">Salesforce (Sales/Service/Marketing/Data Cloud)</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm text-center">
+                        <p class="text-lg font-medium text-gray-800">LeadSquared</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm text-center">
+                        <p class="text-lg font-medium text-gray-800">Google Analytics</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm text-center">
+                        <p class="text-lg font-medium text-gray-800">SQL</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm text-center">
+                        <p class="text-lg font-medium text-gray-800">HTML (Basics)</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm text-center">
+                        <p class="text-lg font-medium text-gray-800">Jira & Confluence</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm text-center">
+                        <p class="text-lg font-medium text-gray-800">Miro/Lucid/Draw.io</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg shadow-sm text-center">
+                        <p class="text-lg font-medium text-gray-800">Google & Microsoft Office suite</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer (optional, but good for completeness) -->
+        <footer class="bg-gray-800 text-white text-center p-4 rounded-b-xl mt-8">
+            <p>&copy; 2025 Rishabh Singla. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
