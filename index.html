@@ -733,7 +733,7 @@
                 <div class="flex flex-col md:flex-row gap-4 mb-4">
                     <textarea id="ai-question" class="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 resize-y min-h-[80px]" placeholder="e.g., What are Rishabh's key responsibilities at Univo Education?"></textarea>
                     <button id="ask-ai-button" class="bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300 flex-shrink-0 flex items-center justify-center">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M1.636 1.636l.707.707M12 21v-1m6.364-1.636l-.707-.707M3 12H2m13.894-5.247c.287.41.407.9.362 1.407-.058.636-.34 1.258-.8 1.704-.46.446-1.082.727-1.718.784-.507.045-.997-.076-1.407-.362-.41-.287-.69-.61-.8-1.045-.11-.434-.14-.88-.088-1.332.05-.452.23-.88.497-1.25.266-.37.6-.676 1.018-.895.418-.219.882-.29 1.346-.206.463.084.896.262 1.25.497.37.267.676.6.895 1.018.219.418.29.882.206 1.346zM15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M1.636 1.636l-.707.707M12 21v-1m6.364-1.636l-.707-.707M3 12H2m13.894-5.247c.287.41.407.9.362 1.407-.058.636-.34 1.258-.8 1.704-.46.446-1.082.727-1.718.784-.507.045-.997-.076-1.407-.362-.41-.287-.69-.61-.8-1.045-.11-.434-.14-.88-.088-1.332.05-.452.23-.88.497-1.25.266-.37.6-.676 1.018-.895.418-.219.882-.29 1.346-.206.463.084.896.262 1.25.497.37.267.676.6.895 1.018.219.418.29.882.206 1.346zM15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         Ask AI
                     </button>
                 </div>
@@ -747,7 +747,7 @@
 
         </main>
 
-               <!-- Hidden section for AI's extended knowledge base -->
+        <!-- Hidden section for AI's extended knowledge base -->
         <div id="ai-detailed-profile" class="hidden">
             <h2>Detailed Professional Background for AI Assistant</h2>
 
@@ -790,7 +790,7 @@
             <p>As a Project Manager, Rishabh's performance was outstanding, leading to a performance-based incentive within just 3 months of joining. This reflects his immediate impact and effectiveness in project execution. Rishabh was responsible for managing an 80MW solar power park project worth INR 450+ Cr.</p>
 
             <h4>PROJECT MANAGER at NKG Infrastructures Ltd (Jul 2010 - Aug 2014):</h4>
-            <p>During his time at NKG Infrastructures, Rishabh earned a promotion within 9 months and received multiple performance-based incentives, showcasing consistent strong performance and leadership growth early in his career. During his stint, he program managed 7 government infrastructure projects with a total worth INR 2,200 Cr. </p>
+            <p>During his time at NKG Infrastructures, Rishabh earned a promotion within 9 months and received multiple performance-based incentives, showcasing consistent strong performance and leadership growth early in his career. During his stint, he program managed 7 government infrastructure projects with a total worth INR 2,200 Cr. </p>
 
             <h4>BACHELOR OF TECHNOLOGY (CIVIL ENGINEERING) from IIT Roorkee (Jun 2006 - May 2010):</h4>
             <p>Rishabh holds a Bachelor's degree in Civil Engineering from IIT Roorkee, a highly prestigious engineering institution in India, indicating a strong analytical and problem-solving foundation.</p>
@@ -922,7 +922,9 @@
                 chatHistory.push({ role: "user", parts: [{ text: prompt }] });
 
                 const payload = { contents: chatHistory };
-                const apiKey = ""; // Canvas will automatically provide the API key
+                // IMPORTANT: Replace 'YOUR_GEMINI_API_KEY' with your actual Gemini API key.
+                // You can obtain a key from Google AI Studio: https://makersuite.google.com/app/apikey
+                const apiKey = "AIzaSyA_ValXA3MOh8F3OUPE6f8KUjT_bezyOlI"; // Canvas automatically provides this in its environment, but you need it for external deployment.
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                 try {
@@ -933,7 +935,10 @@
                     });
 
                     if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
+                        // Log more detailed error information for debugging
+                        const errorData = await response.json();
+                        console.error("API Error Response:", errorData);
+                        throw new Error(`HTTP error! status: ${response.status} - ${errorData.error ? errorData.error.message : 'Unknown API Error'}`);
                     }
 
                     const result = await response.json();
@@ -944,11 +949,11 @@
                         const text = result.candidates[0].content.parts[0].text;
                         aiResponseDiv.textContent = text;
                     } else {
-                        aiResponseDiv.textContent = "Sorry, I could not get a response from the AI. Please try again.";
+                        aiResponseDiv.textContent = "Sorry, I could not get a valid response from the AI. The response structure was unexpected.";
                         console.error("Unexpected API response structure:", result);
                     }
                 } catch (error) {
-                    aiResponseDiv.textContent = "An error occurred while fetching the AI response. Please try again later.";
+                    aiResponseDiv.textContent = "An error occurred while fetching the AI response. Please check the console for details.";
                     console.error("Error calling Gemini API:", error);
                 } finally {
                     // Hide loading indicator regardless of success or failure
