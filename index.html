@@ -15,6 +15,8 @@
             color: #1a202c; /* Darker text color for readability */
             padding: 1rem 2rem 3rem 2rem; /* General padding for the whole body */
             margin: 0;
+            min-height: 100vh; /* Ensure body takes full viewport height for sticky elements */
+            position: relative; /* For relative positioning contexts if needed */
         }
 
         /* Styles for the tab buttons */
@@ -232,6 +234,137 @@
             }
             #current-role-content .current-role-block ul li {
                 list-style-type: none; /* Ensure no default bullets on individual list items */
+            }
+        }
+
+        /* --- AI Chatbot Specific Styles --- */
+        #ai-chatbot-fab {
+            position: fixed;
+            bottom: 30px; /* Slightly higher from the bottom */
+            right: 30px; /* Slightly inward from the right */
+            background-color: #2563eb; /* Strong blue */
+            color: white;
+            border-radius: 50%;
+            width: 60px; /* Larger tap target */
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Prominent shadow */
+            transition: all 0.3s ease;
+            z-index: 1001; /* Ensure FAB is above the chat widget */
+            border: none; /* Remove default button border */
+        }
+
+        #ai-chatbot-fab:hover {
+            background-color: #1d4ed8; /* Darker blue on hover */
+            transform: scale(1.05); /* Slight scale effect */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        #ai-chatbot-widget {
+            position: fixed;
+            bottom: 100px; /* Position above the FAB */
+            right: 20px;
+            width: 340px; /* Fixed width for chat window */
+            max-width: calc(100vw - 40px); /* Max width for mobile responsiveness */
+            height: auto; /* Height will adjust to content */
+            max-height: 80vh; /* Max height for scrolling */
+            background-color: #ffffff;
+            border-radius: 12px; /* Rounded corners */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Hide scrollbar by default */
+            transform: translateY(100%) scale(0.8); /* Start off-screen and scaled down */
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.4s ease-out, opacity 0.4s ease-out, visibility 0.4s ease-out;
+            z-index: 1000;
+        }
+
+        #ai-chatbot-widget.active {
+            transform: translateY(0) scale(1); /* Slide up and scale to full size */
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #ai-chatbot-header {
+            background-color: #2563eb; /* Matching header blue */
+            color: white;
+            padding: 1rem;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        #ai-chatbot-close-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0.25rem;
+            border-radius: 50%;
+            transition: background-color 0.2s ease;
+        }
+        #ai-chatbot-close-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        #ai-chatbot-content {
+            padding: 1rem;
+            flex-grow: 1;
+            overflow-y: auto; /* Enable scrolling for chat content */
+            display: flex;
+            flex-direction: column;
+            gap: 1rem; /* Spacing between chat messages */
+        }
+
+        #ai-question {
+            width: 100%; /* Take full width within its container */
+            min-height: 60px; /* Smaller initial height for input */
+        }
+
+        #ai-response {
+            border: 1px solid #e2e8f0;
+            background-color: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #334155;
+            min-height: 80px; /* Ensure some visibility even if empty */
+            max-height: 200px; /* Constrain response height */
+            overflow-y: auto; /* Make AI response scrollable if long */
+        }
+        #ask-ai-button {
+            width: 100%; /* Full width button */
+        }
+
+        #loading-indicator {
+            text-align: center;
+            margin-top: 1rem;
+            color: #2563eb;
+            font-style: italic;
+        }
+
+        /* Adjustments for smaller screens */
+        @media (max-width: 480px) {
+            #ai-chatbot-widget {
+                width: calc(100vw - 40px); /* Use more of the screen width */
+                right: 20px;
+                left: 20px; /* Center it horizontally */
+                bottom: 90px; /* Adjust vertical position */
+            }
+
+            #ai-chatbot-fab {
+                bottom: 20px;
+                right: 20px;
             }
         }
     </style>
@@ -727,24 +860,6 @@
                 </div>
             </section>
 
-            <!-- AI Assistant Section -->
-            <section class="mb-12 p-6 bg-gray-50 rounded-lg shadow-inner">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">AI Assistant ✨ Ask me about Rishabh's Profile</h2>
-                <div class="flex flex-col md:flex-row gap-4 mb-4">
-                    <textarea id="ai-question" class="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 resize-y min-h-[80px]" placeholder="e.g., What are Rishabh's key responsibilities at Univo Education?"></textarea>
-                    <button id="ask-ai-button" class="bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300 flex-shrink-0 flex items-center justify-center">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M1.636 1.636l-.707.707M12 21v-1m6.364-1.636l-.707-.707M3 12H2m13.894-5.247c.287.41.407.9.362 1.407-.058.636-.34 1.258-.8 1.704-.46.446-1.082.727-1.718.784-.507.045-.997-.076-1.407-.362-.41-.287-.69-.61-.8-1.045-.11-.434-.14-.88-.088-1.332.05-.452.23-.88.497-1.25.266-.37.6-.676 1.018-.895.418-.219.882-.29 1.346-.206.463.084.896.262 1.25.497.37.267.676.6.895 1.018.219.418.29.882.206 1.346zM15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        Ask AI
-                    </button>
-                </div>
-                <div id="ai-response" class="mt-4 p-4 bg-white rounded-lg border border-gray-200 min-h-[100px] text-gray-800">
-                    Your AI-powered answer will appear here.
-                </div>
-                <div id="loading-indicator" class="hidden mt-4 text-center text-blue-500 font-medium">
-                    Loading... Please wait for your AI-powered answer.
-                </div>
-            </section>
-
         </main>
 
         <!-- Hidden section for AI's extended knowledge base -->
@@ -829,10 +944,41 @@
         </footer>
     </div>
 
+    <!-- Floating AI Chatbot Button -->
+    <button id="ai-chatbot-fab" title="Open Rishabh's AI Avatar">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.977-1.405L2 17l1.109-3.415A9.742 9.742 0 012 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9a1 1 0 100-2 1 1 0 000 2zm.059 2.25l-.262-.262a2 2 0 01-.166-2.585L7 8c.365-.733.993-1.361 1.726-1.726.733-.365 1.564-.492 2.408-.387a2 2 0 012.355 1.542l.262.262A2 2 0 0115 11l-.059.25a2 2 0 01-2.355-1.542zM13 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+        </svg>
+    </button>
+
+    <!-- AI Chatbot Widget Container (Floating) -->
+    <div id="ai-chatbot-widget">
+        <div id="ai-chatbot-header">
+            Rishabh's AI Avatar
+            <button id="ai-chatbot-close-button">&times;</button>
+        </div>
+        <div id="ai-chatbot-content" class="flex-grow overflow-y-auto flex flex-col gap-4">
+            <textarea id="ai-question" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 resize-y min-h-[60px]" placeholder="e.g., What are Rishabh's key responsibilities at Univo Education?"></textarea>
+            <button id="ask-ai-button" class="bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300 flex-shrink-0 flex items-center justify-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M1.636 1.636l-.707.707M12 21v-1m6.364-1.636l-.707-.707M3 12H2m13.894-5.247c.287.41.407.9.362 1.407-.058.636-.34 1.258-.8 1.704-.46.446-1.082.727-1.718.784-.507.045-.997-.076-1.407-.362-.41-.287-.69-.61-.8-1.045-.11-.434-.14-.88-.088-1.332.05-.452.23-.88.497-1.25.266-.37.6-.676 1.018-.895.418-.219.882-.29 1.346-.206.463.084.896.262 1.25.497.37.267.676.6.895 1.018.219.418.29.882.206 1.346zM15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                Ask Rishabh
+            </button>
+            <div id="ai-response" class="mt-4 p-4 bg-white rounded-lg border border-gray-200 min-h-[100px] text-gray-800">
+                Your AI-powered answer will appear here.
+            </div>
+            <div id="loading-indicator" class="hidden mt-4 text-center text-blue-500 font-medium">
+                Loading... Please wait for your AI-powered answer.
+            </div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const tabButtons = document.querySelectorAll('#timeline-tabs .tab-button');
             const tabContents = document.querySelectorAll('#timeline-tab-contents .tab-content');
+            const aiChatbotFab = document.getElementById('ai-chatbot-fab');
+            const aiChatbotWidget = document.getElementById('ai-chatbot-widget');
+            const aiChatbotCloseButton = document.getElementById('ai-chatbot-close-button');
             const askAiButton = document.getElementById('ask-ai-button');
             const aiQuestionInput = document.getElementById('ai-question');
             const aiResponseDiv = document.getElementById('ai-response');
@@ -862,13 +1008,27 @@
             // Show the first tab by default on load
             showTab('current-role');
 
+            // Toggle chatbot widget visibility
+            aiChatbotFab.addEventListener('click', () => {
+                aiChatbotWidget.classList.toggle('active');
+                // Ensure scrollbar appears if content overflows
+                if (aiChatbotWidget.classList.contains('active')) {
+                    const aiChatContent = document.getElementById('ai-chatbot-content');
+                    aiChatContent.scrollTop = aiChatContent.scrollHeight; // Scroll to bottom on open
+                }
+            });
+
+            // Close chatbot widget
+            aiChatbotCloseButton.addEventListener('click', () => {
+                aiChatbotWidget.classList.remove('active');
+            });
+
             // Add event listener to clear AI response when input changes/is cleared
             aiQuestionInput.addEventListener('input', () => {
                 if (aiQuestionInput.value.trim() === '') {
                     aiResponseDiv.textContent = 'Your AI-powered answer will appear here.'; // Reset to initial placeholder
                 }
             });
-
 
             // --- Gemini API Integration ---
             askAiButton.addEventListener('click', async () => {
@@ -892,7 +1052,6 @@
 
                 // Get content from the hidden detailed profile section
                 const detailedProfileContent = document.getElementById('ai-detailed-profile').innerText;
-
 
                 const rishabhProfileText = `
                     Professional Summary: ${profileSummary}
@@ -932,7 +1091,7 @@
                 const payload = { contents: chatHistory };
                 // When running in Canvas, leave this empty. Canvas injects the API key.
                 // For external deployment (e.g., GitHub Pages), replace "" with your actual Gemini API key.
-                const apiKey = "AIzaSyA_ValXA3MOh8F3OUPE6f8KUjT_bezyOlI"; 
+                const apiKey = ""; 
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                 try {
@@ -943,9 +1102,9 @@
                     });
 
                     if (!response.ok) {
-                        // Log more detailed error information for debugging
                         const errorData = await response.json();
                         console.error("API Error Response:", errorData);
+                        aiResponseDiv.textContent = `Error: ${errorData.error ? errorData.error.message : 'Unknown API Error'}`;
                         throw new Error(`HTTP error! status: ${response.status} - ${errorData.error ? errorData.error.message : 'Unknown API Error'}`);
                     }
 
@@ -961,7 +1120,12 @@
                         console.error("Unexpected API response structure:", result);
                     }
                 } catch (error) {
-                    aiResponseDiv.textContent = "An error occurred while fetching the AI response. Please check the console for details.";
+                    // Update the AI response div with a user-friendly message
+                    if (error.message.includes("API key not valid")) {
+                         aiResponseDiv.textContent = "AI assistant is not configured. Please provide a valid API key for external deployment.";
+                    } else {
+                        aiResponseDiv.textContent = "An error occurred while fetching the AI response. Please check the console for details.";
+                    }
                     console.error("Error calling Gemini API:", error);
                 } finally {
                     // Hide loading indicator regardless of success or failure
