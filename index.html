@@ -767,7 +767,7 @@
                     </ul>
                 </li>
             </ul>
-            <p>A key achievement in this role is being awarded for exemplary performance for two consecutive quarters, underscoring his consistent high impact and leadership.</p>
+            <p>A key achievement in this role is being awarded for exemplary performance for 2 consecutive quarters, underscoring his consistent high impact and leadership.</p>
 
             <h3>Recent Experience:</h3>
             <h4>BUSINESS CONSULTANT at TechMatrix IT Consulting (P) Ltd (Jul 2023 - Aug 2024):</h4>
@@ -862,6 +862,14 @@
             // Show the first tab by default on load
             showTab('current-role');
 
+            // Add event listener to clear AI response when input changes/is cleared
+            aiQuestionInput.addEventListener('input', () => {
+                if (aiQuestionInput.value.trim() === '') {
+                    aiResponseDiv.textContent = 'Your AI-powered answer will appear here.'; // Reset to initial placeholder
+                }
+            });
+
+
             // --- Gemini API Integration ---
             askAiButton.addEventListener('click', async () => {
                 const userQuestion = aiQuestionInput.value.trim();
@@ -922,9 +930,9 @@
                 chatHistory.push({ role: "user", parts: [{ text: prompt }] });
 
                 const payload = { contents: chatHistory };
-                // IMPORTANT: Replace 'YOUR_GEMINI_API_KEY' with your actual Gemini API key.
-                // You can obtain a key from Google AI Studio: https://makersuite.google.com/app/apikey
-                const apiKey = "AIzaSyA_ValXA3MOh8F3OUPE6f8KUjT_bezyOlI"; // Canvas automatically provides this in its environment, but you need it for external deployment.
+                // When running in Canvas, leave this empty. Canvas injects the API key.
+                // For external deployment (e.g., GitHub Pages), replace "" with your actual Gemini API key.
+                const apiKey = ""; 
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                 try {
