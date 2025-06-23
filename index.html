@@ -690,14 +690,14 @@
                     <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Google Analytics (Beginners)</span>
                     <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Six Sigma Green Belt, KPMG</span>
                     <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Business Analytics with Excel</span>
-                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Digital Transformation</span>
+                    <span class="bg-emerald-200 text-emerald-900 text-sm font-400 px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Digital Transformation</span>
                     <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Introduction to AI</span>
                     <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Introduction to Data Analytics</span>
                 </div>
             </section>
 
             <!-- Tools & Platforms Section -->
-            <section>
+            <section class="mb-12">
                 <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Tools & Platforms</h2>
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                     <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
@@ -727,7 +727,101 @@
                 </div>
             </section>
 
+            <!-- AI Assistant Section -->
+            <section class="mb-12 p-6 bg-gray-50 rounded-lg shadow-inner">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">AI Assistant ✨ Ask me about Rishabh's Profile</h2>
+                <div class="flex flex-col md:flex-row gap-4 mb-4">
+                    <textarea id="ai-question" class="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 resize-y min-h-[80px]" placeholder="e.g., What are Rishabh's key responsibilities at Univo Education?"></textarea>
+                    <button id="ask-ai-button" class="bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300 flex-shrink-0 flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M1.636 1.636l.707.707M12 21v-1m6.364-1.636l-.707-.707M3 12H2m13.894-5.247c.287.41.407.9.362 1.407-.058.636-.34 1.258-.8 1.704-.46.446-1.082.727-1.718.784-.507.045-.997-.076-1.407-.362-.41-.287-.69-.61-.8-1.045-.11-.434-.14-.88-.088-1.332.05-.452.23-.88.497-1.25.266-.37.6-.676 1.018-.895.418-.219.882-.29 1.346-.206.463.084.896.262 1.25.497.37.267.676.6.895 1.018.219.418.29.882.206 1.346zM15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        Ask AI
+                    </button>
+                </div>
+                <div id="ai-response" class="mt-4 p-4 bg-white rounded-lg border border-gray-200 min-h-[100px] text-gray-800">
+                    Your AI-powered answer will appear here.
+                </div>
+                <div id="loading-indicator" class="hidden mt-4 text-center text-blue-500 font-medium">
+                    Loading... Please wait for your AI-powered answer.
+                </div>
+            </section>
+
         </main>
+
+        <!-- Hidden section for AI's extended knowledge base -->
+        <div id="ai-detailed-profile" class="hidden">
+            <h2>Detailed Professional Background for AI Assistant</h2>
+
+            <h3>About Rishabh Singla:</h3>
+            <p>Rishabh Singla is a highly experienced professional with over 14 years in various roles, specializing in business solutions and driving significant growth across multiple sectors. His expertise spans product management, business consulting, and MarTech, with a recent focus on leveraging Gen AI for contact center optimization. He is known as a generalizing specialist, meaning he possesses broad knowledge across different areas while also having deep expertise in specific domains like CRM and AI implementation.</p>
+
+            <h3>Current Role - Principal Architect at UNIVO Education (P) Ltd (Aug 2024 - Present):</h3>
+            <p>In this role, Rishabh holds complete oversight and management of the contact center operations. This includes strategic improvements and technical leadership across several critical areas:</p>
+            <ul>
+                <li>**CRM Optimization:** He specifically optimized the CRM architecture, leading to a significant 60% reduction in request processing time. This involved in-depth analysis of existing systems, identifying bottlenecks, and implementing more efficient data flows and system integrations.</li>
+                <li>**Dialer Implementation & Process Revamp:** Rishabh spearheaded the implementation of a new dialer system. More critically, he revamped the entire business process around it, which resulted in an over 80% increase in both the churn rate (likely referring to more efficient customer handling) and speed-to-dial, indicating a massive improvement in operational efficiency for outbound communications.</li>
+                <li>**Generative AI Initiatives Leadership:** Rishabh is recognized as one of the top three resources for leading Generative AI projects within the organization. His contributions include:
+                    <ul>
+                        <li>**WhatsApp Onboarding Journey:** He was instrumental in developing and implementing a customer onboarding journey via WhatsApp, specifically for non-assisted sales. This initiative has been highly successful, contributing to 75% of organic conversions, indicating a significant impact on revenue and customer acquisition efficiency without direct human intervention.</li>
+                        <li>**Voice Bot Solutions:** Rishabh implemented advanced Voice Bot solutions that brought about substantial efficiency gains: approximately 60% in the Support process (reducing call volume, improving first-call resolution) and around 40% in the Sales process (automating initial queries, qualifying leads).</li>
+                        <li>**Lead Profiling and Scoring:** He is driving initiatives for lead profiling and scoring, which aims to enhance sales efficiency by identifying and prioritizing high-potential leads. The initial goal for Phase-1 is to achieve 25% efficiency improvement in the sales funnel.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>A key achievement in this role is being awarded for exemplary performance for two consecutive quarters, underscoring his consistent high impact and leadership.</p>
+
+            <h3>Recent Experience:</h3>
+            <h4>BUSINESS CONSULTANT at TechMatrix IT Consulting (P) Ltd (Jul 2023 - Aug 2024):</h4>
+            <p>During his tenure as a Business Consultant, Rishabh was formally appreciated by all customers for his outstanding contributions, highlighting his strong client relationship management and successful project delivery capabilities. Rishabh built the solution strategy of a hybrid (SAAS on Cloud + On-Prem DB) solution enabling multiple functions across all lines of business for public sector bank with >15000 users. Program managed customer acquisition & service process transformation for one of the largest NBFCs, with production stabilization within 50% of the stipulated timelines; </p>
+
+            <h4>PRODUCT MANAGER at OLX Autos (Aug 2021 - Jun 2023):</h4>
+            <p>As a Product Manager, Rishabh played a pivotal role in product development and strategy. A notable achievement was receiving a cash prize and appreciation for the successful launch of a CRM system across two different countries. This demonstrates his ability to manage complex, multi-geography product rollouts and deliver tangible results. Led multi-country roll out of Customer Relationship Management (CRM) Platform. Rishabh worked with internal teams, technical architects and third party vendors on building the architecture for a global MVP template of CRM (Salesforce), reducing new market launch timelines by a significant 60%; Launched in 2 international markets .</p>
+
+            <h4>SENIOR MANAGER - MARTECH at PVR Limited (May 2021 - Aug 2021):</h4>
+            <p>In this role, Rishabh demonstrated exceptional project management and problem-solving skills by unblocking a critical project and taking it live in record time. This highlights his agility and ability to drive projects to completion efficiently. Rishabh architected and led a real-time retargeting platform (SFMC & Data Cloud, erstwhile CDP), with omnichannel communication capability, driving 50%+ revenue from alternate business streams and uplifting brand engagement by 40%+ </p>
+
+            <h3>Early Career & Education:</h3>
+            <h4>MANAGER - BUSINESS at NIIT Ltd. - Career Education Business (Jun 2016 - Apr 2021):</h4>
+            <p>Rishabh was part of the core team directly reporting to the CEO & President of NIIT Ltd.'s Career Education Business. This indicates his involvement in high-level strategic decision-making and significant responsibilities within the organization. Rishabh led the complete digital transformation of customer acquisition of legacy retail business that brought 100% revenue during Covid-19 & now the core part of new business entity. He designed wireframes & customer journey for web & mobile app-based front end applications; managed GA360 implementation for  uplifting digital conversion rates by 35%+, with 100%+ for certain product categories. Rishabh built use case for ‘build vs buy’ for automation platforms. He drove feature mapping, vendor selection, discovery, execution and launched backend applications reducing sales cycle by 20%+ and funnel drops by up to 40%+. Implemented LeadSquared as CRM for seamless customer onboarding and Salesforce Marketing Cloud (SFMC) for omnichannel engagements. He worked with Data Engineering team to build dashboards to track business and operational metrics for real-time reporting. He built a machine learning-based in-house Customer Data Platform for marketing to use for unique identification and segmentation with initial 6.5 Mn. records, saving a recurring cost of INR 50K per month in bulk data procurement. In his first assignment at NIIT, Rishabh established a new business line from scratch, generating INR 1 Cr.+ revenue in first operating year, with a potential annual run rate of INR 3Cr.</p>
+
+            <h4>POST GRADUATE DIPLOMA IN GENERAL MANAGEMENT (MBA) from XLRI - Jamshedpur (Jun 2015 - Jul 2016):</h4>
+            <p>Rishabh completed his MBA from XLRI, a premier management institute, which provided him with a strong foundation in general management principles and business strategy.</p>
+
+            <h4>PROJECT MANAGER at Rays Power Experts (P) Ltd (Sep 2014 - May 2015):</h4>
+            <p>As a Project Manager, Rishabh's performance was outstanding, leading to a performance-based incentive within just 3 months of joining. This reflects his immediate impact and effectiveness in project execution. Rishabh was responsible for managing an 80MW solar power park project worth INR 450+ Cr.</p>
+
+            <h4>PROJECT MANAGER at NKG Infrastructures Ltd (Jul 2010 - Aug 2014):</h4>
+            <p>During his time at NKG Infrastructures, Rishabh earned a promotion within 9 months and received multiple performance-based incentives, showcasing consistent strong performance and leadership growth early in his career. During his stint, he program managed 7 government infrastructure projects with a total worth INR 2,200 Cr. </p>
+
+            <h4>BACHELOR OF TECHNOLOGY (CIVIL ENGINEERING) from IIT Roorkee (Jun 2006 - May 2010):</h4>
+            <p>Rishabh holds a Bachelor's degree in Civil Engineering from IIT Roorkee, a highly prestigious engineering institution in India, indicating a strong analytical and problem-solving foundation.</p>
+
+            <h3>Certifications Details:</h3>
+            <ul>
+                <li>**Product-led Certified:** Demonstrates expertise in building and growing products with a product-led growth strategy.</li>
+                <li>**AI for Product Management:** Certification in applying Artificial Intelligence concepts and tools specifically within product management workflows.</li>
+                <li>**Product Analytics Certified:** Proficient in using data and analytics to inform product decisions and measure product performance.</li>
+                <li>**Agile Project Management:** Certified in Agile methodologies, emphasizing flexibility, collaboration, and iterative development.</li>
+                <li>**'Me to We' by Dale Carnegie:** Focuses on leadership development, teamwork, and interpersonal skills.</li>
+                <li>**Google Analytics (Beginners):** Fundamental understanding of web analytics using Google Analytics to track website performance.</li>
+                <li>**Six Sigma Green Belt, KPMG:** Certified in process improvement and quality management methodologies, indicating a data-driven approach to problem-solving.</li>
+                <li>**Business Analytics with Excel:** Skills in utilizing Microsoft Excel for business data analysis and insights.</li>
+                <li>**Digital Transformation:** Understanding of strategies and technologies involved in digital transformation initiatives.</li>
+                <li>**Introduction to AI:** Basic knowledge of Artificial Intelligence concepts and applications.</li>
+                <li>**Introduction to Data Analytics:** Fundamental understanding of data analysis principles and techniques.</li>
+            </ul>
+
+            <h3>Tools & Platforms Expertise:</h3>
+            <ul>
+                <li>**Salesforce:** Comprehensive experience across various Salesforce clouds including Sales Cloud (CRM for sales teams), Service Cloud (customer service and support), Marketing Cloud (digital marketing automation), and Data Cloud (data integration and management).</li>
+                <li>**LeadSquared:** Proficiency in using LeadSquared, likely for marketing automation and sales execution.</li>
+                <li>**Google Analytics:** Experienced in web analytics for tracking and reporting website traffic.</li>
+                <li>**SQL:** Strong skills in Structured Query Language for database querying and data manipulation.</li>
+                <li>**HTML (Basics):** Foundational understanding of HTML for web content structuring.</li>
+                <li>**Jira & Confluence:** Extensive experience with Atlassian tools for project management, issue tracking (Jira), and collaborative documentation (Confluence).</li>
+                <li>**Miro, Lucid, Draw.io:** Proficient in using visual collaboration and diagramming tools for brainstorming, design, and process mapping.</li>
+                <li>**Google & Microsoft Office suite:** Standard proficiency in common office productivity applications.</li>
+            </ul>
+        </div>
 
         <!-- Footer (optional, but good for completeness) -->
         <footer class="bg-gray-800 text-white text-center p-4 rounded-b-xl mt-8">
@@ -739,6 +833,10 @@
         document.addEventListener('DOMContentLoaded', () => {
             const tabButtons = document.querySelectorAll('#timeline-tabs .tab-button');
             const tabContents = document.querySelectorAll('#timeline-tab-contents .tab-content');
+            const askAiButton = document.getElementById('ask-ai-button');
+            const aiQuestionInput = document.getElementById('ai-question');
+            const aiResponseDiv = document.getElementById('ai-response');
+            const loadingIndicator = document.getElementById('loading-indicator');
 
             // Function to show a specific tab
             const showTab = (tabId) => {
@@ -763,6 +861,100 @@
 
             // Show the first tab by default on load
             showTab('current-role');
+
+            // --- Gemini API Integration ---
+            askAiButton.addEventListener('click', async () => {
+                const userQuestion = aiQuestionInput.value.trim();
+                if (!userQuestion) {
+                    aiResponseDiv.textContent = "Please enter a question!";
+                    return;
+                }
+
+                // Show loading indicator
+                loadingIndicator.classList.remove('hidden');
+                aiResponseDiv.textContent = ''; // Clear previous response
+
+                // Extract relevant text from the profile for context
+                const profileSummary = document.querySelector('header p').textContent;
+                const currentRoleDetails = document.getElementById('current-role-content').innerText;
+                const recentExperienceDetails = document.getElementById('recent-experience-content').innerText;
+                const earlyCareerEducationDetails = document.getElementById('early-career-education-content').innerText;
+                const certificationsText = document.querySelector('section:nth-of-type(2)').innerText;
+                const toolsText = document.querySelector('section:nth-of-type(3)').innerText;
+
+                // NEW: Get content from the hidden detailed profile section
+                const detailedProfileContent = document.getElementById('ai-detailed-profile').innerText;
+
+
+                const rishabhProfileText = `
+                    Professional Summary: ${profileSummary}
+
+                    Current Role:
+                    ${currentRoleDetails}
+
+                    Recent Experience:
+                    ${recentExperienceDetails}
+
+                    Early Career & Education:
+                    ${earlyCareerEducationDetails}
+
+                    Certifications:
+                    ${certificationsText}
+
+                    Tools & Platforms:
+                    ${toolsText}
+
+                    --- Additional Detailed Information for AI ---
+                    ${detailedProfileContent}
+                `;
+
+                const prompt = `You are an AI assistant tasked with answering questions about the professional profile of Rishabh Singla.
+                Only use the information provided below. If a question cannot be answered from the provided text, state that the information is not available in the profile.
+
+                Rishabh Singla's Professional Profile:
+                ${rishabhProfileText}
+
+                User's Question:
+                ${userQuestion}
+                `;
+
+                let chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+
+                const payload = { contents: chatHistory };
+                const apiKey = ""; // Canvas will automatically provide the API key
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        aiResponseDiv.textContent = text;
+                    } else {
+                        aiResponseDiv.textContent = "Sorry, I could not get a response from the AI. Please try again.";
+                        console.error("Unexpected API response structure:", result);
+                    }
+                } catch (error) {
+                    aiResponseDiv.textContent = "An error occurred while fetching the AI response. Please try again later.";
+                    console.error("Error calling Gemini API:", error);
+                } finally {
+                    // Hide loading indicator regardless of success or failure
+                    loadingIndicator.classList.add('hidden');
+                }
+            });
         });
     </script>
 </body>
