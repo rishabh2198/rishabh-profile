@@ -11,20 +11,25 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #e0f2fe; /* Very light blue background */
-            color: #1a202c; /* Darker text color for readability */
+            background-color: #E8EDF2; /* Slightly darker, cool light grey background */
+            color: #4A5568; /* Dark grey text color for readability */
             padding: 1rem 2rem 3rem 2rem; /* General padding for the whole body */
             margin: 0;
             min-height: 100vh; /* Ensure body takes full viewport height for sticky elements */
             position: relative; /* For relative positioning contexts if needed */
         }
 
+        /* Ensure the main profile content stands out */
+        #profile-content {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18); /* More pronounced shadow for main container */
+        }
+
         /* Styles for the tab buttons */
         .tab-button {
             padding: 0.75rem 1.25rem;
             border-radius: 0.5rem;
-            background-color: #bfdbfe; /* Light blue */
-            color: #1e40af; /* Darker blue text */
+            background-color: #E2E8F0; /* Light grey-blue for inactive tabs */
+            color: #4A5568; /* Darker grey text */
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -34,14 +39,14 @@
         }
 
         .tab-button.active {
-            background-color: #2563eb; /* Stronger blue */
+            background-color: #2563EB; /* Professional blue for active tab */
             color: white;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25); /* More pronounced shadow */
-            border-color: #1d4ed8; /* Darker blue border for active state */
+            border-color: #1D4ED8; /* Darker blue border for active state */
         }
 
         .tab-button:hover:not(.active) {
-            background-color: #93c5fd; /* Lighter blue on hover */
+            background-color: #CFE2F3; /* Lighter blue on hover */
             transform: translateY(-2px); /* Slight lift effect */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
@@ -64,7 +69,7 @@
             left: 50%;
             width: 4px;
             height: 100%;
-            background-color: #06b6d4; /* Vibrant cyan */
+            background-color: #06b6d4; /* Vibrant cyan for timeline */
             transform: translateX(-50%);
             z-index: 0;
             border-radius: 2px;
@@ -85,7 +90,7 @@
         .timeline-dot-desktop {
             width: 32px;
             height: 32px;
-            background-color: #2563eb; /* Strong blue color */
+            background-color: #2563EB; /* Matches active tab blue */
             border-radius: 50%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow */
             display: flex;
@@ -114,7 +119,7 @@
         .timeline-mobile-dot {
             width: 32px;
             height: 32px;
-            background-color: #2563eb; /* Strong blue */
+            background-color: #2563EB; /* Matches active tab blue */
             border-radius: 50%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             display: flex;
@@ -143,6 +148,11 @@
             width: calc(100% - 2rem); /* Full width minus some padding */
             margin-left: 2rem; /* Offset for the mobile line and dot */
             z-index: 5;
+            background-color: #FFFFFF; /* White background for content blocks */
+            padding: 1.5rem; /* Default padding for content blocks */
+            border-radius: 0.5rem; /* Rounded corners */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18); /* Stronger shadow for content blocks */
+            border: 1px solid #E0E0E0; /* Subtle border */
         }
 
         /* Desktop specific styles (min-width: 768px) */
@@ -188,13 +198,19 @@
 
             .timeline-date-desktop {
                 margin-bottom: 0.5rem; /* Space between date and content block */
+                color: #2563EB; /* Blue for desktop timeline dates */
+                font-weight: 600;
             }
 
             .timeline-content-desktop {
                 width: 100%; /* Take full width of its 50% parent */
                 margin-left: 0; /* Remove mobile offset */
                 z-index: 5; /* Ensure content is above the line */
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Added shadow to desktop content blocks */
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18); /* Stronger shadow for content blocks */
+                background-color: #FFFFFF; /* White background for content blocks */
+                border: 1px solid #E0E0E0; /* Subtle border */
+                border-radius: 0.5rem; /* Rounded corners */
+                padding: 1.5rem; /* Consistent padding */
             }
             /* Specific override for Current Role to be a single block */
             #current-role-content .current-role-block {
@@ -202,7 +218,9 @@
                 max-width: 800px; /* Optional: constrain width for better readability on very large screens */
                 margin: 0 auto; /* Center the block */
                 display: block !important; /* Override any hidden states from previous timeline styles */
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25); /* Stronger shadow for current role block */
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); /* Even stronger shadow for current role block */
+                background-color: #FFFFFF; /* White background for current role block */
+                border: 2px solid #2563EB; /* Highlight border */
             }
             #current-role-content .current-role-block .timeline-dot-desktop,
             #current-role-content .current-role-block .timeline-mobile-wrapper {
@@ -220,6 +238,7 @@
                 display: none !important;
             }
         }
+
         /* Mobile specific styling for current role to be a single block */
         @media (max-width: 767px) {
             #current-role-content .current-role-block {
@@ -237,12 +256,43 @@
             }
         }
 
+        /* New styles for compact Certifications and Tools */
+        .compact-section-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive grid columns */
+            gap: 0.75rem; /* Gap between grid items */
+            list-style-type: none; /* Remove default list bullets */
+            padding-left: 0;
+            margin-bottom: 0; /* Remove default ul margin */
+        }
+        .compact-section-list li {
+            background-color: #FFFFFF; /* White background for list items */
+            color: #2D3748; /* Dark grey text for list items */
+            padding: 0.75rem 1rem; /* More padding for a softer look */
+            border-radius: 0.5rem; /* Slightly rounded corners */
+            font-size: 0.9rem; /* Slightly larger font than chips */
+            font-weight: 500;
+            text-align: center;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12); /* Stronger shadow */
+            border: 1px solid #E0E0E0; /* Subtle border */
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .compact-section-list li:hover {
+            background-color: #F8FAFC; /* Very light background on hover */
+            transform: translateY(-2px); /* Slight lift */
+            box-shadow: 0 7px 18px rgba(0, 0, 0, 0.18); /* Even more pronounced shadow on hover */
+        }
+        .section-heading-improved {
+            text-3xl font-bold text-gray-800 mb-6 text-center
+        }
+
+
         /* --- AI Chatbot Specific Styles --- */
         #ai-chatbot-fab {
             position: fixed;
             bottom: 30px; /* Slightly higher from the bottom */
             right: 30px; /* Slightly inward from the right */
-            background-color: #2563eb; /* Strong blue */
+            background-color: #2563EB; /* Strong professional blue */
             color: white;
             border-radius: 50%;
             width: 60px; /* Larger tap target */
@@ -258,7 +308,7 @@
         }
 
         #ai-chatbot-fab:hover {
-            background-color: #1d4ed8; /* Darker blue on hover */
+            background-color: #1D4ED8; /* Darker blue on hover */
             transform: scale(1.05); /* Slight scale effect */
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
@@ -291,7 +341,7 @@
         }
 
         #ai-chatbot-header {
-            background-color: #2563eb; /* Matching header blue */
+            background-color: #2563EB; /* Matching header blue */
             color: white;
             padding: 1rem;
             border-top-left-radius: 12px;
@@ -332,12 +382,12 @@
         }
 
         #ai-response {
-            border: 1px solid #e2e8f0;
-            background-color: #f8fafc;
+            border: 1px solid #E2E8F0;
+            background-color: #F7FAFC;
             padding: 1rem;
             border-radius: 8px;
             font-size: 0.9rem;
-            color: #334155;
+            color: #4A5568;
             min-height: 80px; /* Ensure some visibility even if empty */
             max-height: 200px; /* Constrain response height */
             overflow-y: auto; /* Make AI response scrollable if long */
@@ -349,7 +399,7 @@
         #loading-indicator {
             text-align: center;
             margin-top: 1rem;
-            color: #2563eb;
+            color: #2563EB;
             font-style: italic;
         }
 
@@ -374,10 +424,9 @@
     <!-- Main Profile Content -->
     <div id="profile-content" class="max-w-6xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
         <!-- Header Section: Contact Info and Professional Summary -->
-        <header class="bg-gradient-to-r from-blue-500 to-cyan-600 text-white p-6 sm:p-8 rounded-t-xl">
+        <header class="bg-gradient-to-r from-blue-400 to-cyan-500 text-white p-6 sm:p-8 rounded-t-xl">
             <h1 class="text-4xl sm:text-5xl font-extrabold text-center mb-2 tracking-tight">RISHABH SINGLA</h1>
-            <p class="text-lg sm:text-xl text-center mb-4 opacity-90">A generalizing specialist with 14+ years of experience in providing solutions and driving growth across sectors.</p>
-            <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-sm sm:text-base">
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-sm sm:text-base mb-6">
                 <a href="tel:+919953069007" class="flex items-center hover:underline">
                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.103 6.103l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
                     +91-9953069007
@@ -391,10 +440,23 @@
                     LinkedIn Profile
                 </a>
             </div>
+            <p class="text-base sm:text-lg text-center leading-relaxed text-gray-100">
+                A seasoned professional with 14+ years of experience, with expertise in product management and business consulting across various sectors. He is adept at transforming complex business challenges into scalable, impactful solutions by leveraging innovative approaches and GenAI technologies.
+            </p>
         </header>
 
         <!-- Main Content Area -->
         <main class="p-6 sm:p-8 md:p-10 lg:p-12 bg-white rounded-b-xl shadow-inner">
+
+            <!-- Key Achievements Section -->
+            <section class="mb-12 p-6 bg-gradient-to-r from-teal-50 to-cyan-100 rounded-lg shadow-md">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Key Achievements</h2>
+                <ul class="text-gray-700 text-base sm:text-lg space-y-3 pl-5 list-disc list-outside">
+                    <li>Amongst the selected few across all organizations to lead strategic initiatives</li>
+                    <li>Increased Contact Center Efficiency by 60%+** by optimizing technical architecture, process redesign and GenAI initiatives</li>
+                    <li>Led the Digital Transformation of legacy business, bringing 100% revenue during Covid-19 </li>
+                </ul>
+            </section>
 
             <!-- Professional Journey Section (Timeline) -->
             <section class="mb-12 relative pb-8">
@@ -409,7 +471,7 @@
                 <div id="timeline-tab-contents">
                     <!-- Current Role Tab Content (Single Block) -->
                     <div class="tab-content active" id="current-role-content">
-                        <div class="bg-blue-100 p-6 rounded-lg shadow-md w-full current-role-block">
+                        <div class="bg-white p-6 rounded-lg shadow-md w-full current-role-block">
                             <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 text-center">PRINCIPAL ARCHITECT</h3>
                             <p class="text-lg sm:text-xl font-medium text-gray-700 mb-4 text-center">UNIVO Education (P) Ltd</p>
                             <p class="text-md sm:text-lg font-semibold text-blue-700 mb-4 text-center">Aug 2024 - Present</p>
@@ -521,7 +583,7 @@
                                         </div>
                                         <span class="text-lg font-semibold text-blue-700">Jul 2023 - Aug 2024</span>
                                     </div>
-                                    <div class="timeline-content-mobile md:hidden bg-blue-100 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">BUSINESS CONSULTANT</h3>
                                         <p class="text-md font-medium text-gray-700">TechMatrix IT Consulting (P) Ltd</p>
                                         <ul class="list-none text-gray-700 mt-2 pl-0">
@@ -531,7 +593,7 @@
 
                                     <!-- Desktop View -->
                                     <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jul 2023 - Aug 2024</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-blue-100 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">BUSINESS CONSULTANT</h3>
                                         <p class="text-md font-medium text-gray-700">TechMatrix IT Consulting (P) Ltd</p>
                                         <ul class="list-none text-gray-700 mt-2 pl-0">
@@ -559,7 +621,7 @@
                                         </div>
                                         <span class="text-lg font-semibold text-blue-700">Aug 2021 - Jun 2023</span>
                                     </div>
-                                    <div class="timeline-content-mobile md:hidden bg-blue-100 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">PRODUCT MANAGER</h3>
                                         <p class="text-md font-medium text-gray-700">OLX Autos</p>
                                         <ul class="list-none text-gray-700 mt-2 pl-0">
@@ -569,7 +631,7 @@
 
                                     <!-- Desktop View -->
                                     <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Aug 2021 - Jun 2023</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-blue-100 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">PRODUCT MANAGER</h3>
                                         <p class="text-md font-medium text-gray-700">OLX Autos</p>
                                         <ul class="list-none text-gray-700 mt-2 pl-0">
@@ -599,7 +661,7 @@
                                         </div>
                                         <span class="text-lg font-semibold text-blue-700">May 2021 - Aug 2021</span>
                                     </div>
-                                    <div class="timeline-content-mobile md:hidden bg-blue-100 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">SENIOR MANAGER - MARTECH</h3>
                                         <p class="text-md font-medium text-gray-700">PVR Limited</p>
                                         <ul class="list-none text-gray-700 mt-2 pl-0">
@@ -609,7 +671,7 @@
 
                                     <!-- Desktop View -->
                                     <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">May 2021 - Aug 2021</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-blue-100 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">SENIOR MANAGER - MARTECH</h3>
                                         <p class="text-md font-medium text-gray-700">PVR Limited</p>
                                         <ul class="list-none text-gray-700 mt-2 pl-0">
@@ -643,7 +705,7 @@
                                         </div>
                                         <span class="text-lg font-semibold text-blue-700">Jun 2016 - Apr 2021</span>
                                     </div>
-                                    <div class="timeline-content-mobile md:hidden bg-blue-100 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">MANAGER - BUSINESS</h3>
                                         <p class="text-md font-medium text-gray-700">NIIT Ltd. - Career Education Business</p>
                                         <ul class="list-none text-gray-700 mt-2 pl-0">
@@ -653,7 +715,7 @@
 
                                     <!-- Desktop View -->
                                     <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jun 2016 - Apr 2021</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-blue-100 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">MANAGER - BUSINESS</h3>
                                         <p class="text-md font-medium text-gray-700">NIIT Ltd. - Career Education Business</p>
                                         <ul class="list-none text-gray-700 mt-2 pl-0">
@@ -681,14 +743,14 @@
                                         </div>
                                         <span class="text-lg font-semibold text-blue-700">Jun 2015 - Jul 2016</span>
                                     </div>
-                                    <div class="timeline-content-mobile md:hidden bg-blue-100 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">POST GRADUATE DIPLOMA IN GENERAL MANAGEMENT (MBA)</h3>
                                         <p class="text-md font-medium text-gray-700">XLRI - Jamshedpur</p>
                                     </div>
 
                                     <!-- Desktop View -->
                                     <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jun 2015 - Jul 2016</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-blue-100 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">POST GRADUATE DIPLOMA IN GENERAL MANAGEMENT (MBA)</h3>
                                         <p class="text-md font-medium text-gray-700">XLRI - Jamshedpur</p>
                                     </div>
@@ -715,7 +777,7 @@
                                         </div>
                                         <span class="text-lg font-semibold text-blue-700">Sep 2014 - May 2015</span>
                                     </div>
-                                    <div class="timeline-content-mobile md:hidden bg-blue-100 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
                                         <p class="text-md font-medium text-gray-700">Rays Power Experts (P) Ltd</p>
                                         <ul class="list-none text-gray-700 mt-2 pl-0">
@@ -725,7 +787,7 @@
 
                                     <!-- Desktop View -->
                                     <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Sep 2014 - May 2015</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-blue-100 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
                                         <p class="text-md font-medium text-gray-700">Rays Power Experts (P) Ltd</p>
                                         <ul class="list-none text-gray-700 mt-2 pl-0">
@@ -753,7 +815,7 @@
                                         </div>
                                         <span class="text-lg font-semibold text-blue-700">Jul 2010 - Aug 2014</span>
                                     </div>
-                                    <div class="timeline-content-mobile md:hidden bg-blue-100 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
                                         <p class="text-md font-medium text-gray-700">NKG Infrastructures Ltd</p>
                                         <ul class="list-none text-gray-700 mt-2 pl-0">
@@ -763,7 +825,7 @@
 
                                     <!-- Desktop View -->
                                     <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jul 2010 - Aug 2014</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-blue-100 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
                                         <p class="text-md font-medium text-gray-700">NKG Infrastructures Ltd</p>
                                         <ul class="list-none text-gray-700 mt-2 pl-0">
@@ -788,19 +850,19 @@
                                     <div class="timeline-mobile-wrapper md:hidden">
                                         <div class="timeline-mobile-dot">
                                             <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                                <path d="M10 2a4 4 0 00-4 4v2.5a.5.5 0 00.5.5H8v1.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V9h2a.5.5 0 00.5-.5V6a4 4 0 00-4-4zm0 2a2 2 0 00-2 2v.5h4V6a2 2 0 00-2-2zM4.5 10a.5.5 0 01.5-.5h10a.5.5 0 01.5.5v6.5a.5.5 0 01-.5.5H5a.5.5 0 01-.5-.5V10zM10 14.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                                                <path d="M10 2a4 4 0 : 00-4 4v2.5a.5.5 0 00.5.5H8v1.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V9h2a.5.5 0 00.5-.5V6a4 4 0 00-4-4zm0 2a2 2 0 00-2 2v.5h4V6a2 2 0 00-2-2zM4.5 10a.5.5 0 01.5-.5h10a.5.5 0 01.5.5v6.5a.5.5 0 01-.5.5H5a.5.5 0 01-.5-.5V10zM10 14.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
                                     </svg>
                                         </div>
                                         <span class="text-lg font-semibold text-blue-700">Jun 2006 - May 2010</span>
                                     </div>
-                                    <div class="timeline-content-mobile md:hidden bg-blue-100 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">BACHELOR OF TECHNOLOGY (CIVIL ENGINEERING)</h3>
                                         <p class="text-md font-medium text-gray-700">IIT Roorkee</p>
                                     </div>
 
                                     <!-- Desktop View -->
                                     <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jun 2006 - May 2010</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-blue-100 p-6 rounded-lg shadow-md w-full">
+                                    <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
                                         <h3 class="text-xl font-bold text-gray-900">BACHELOR OF TECHNOLOGY (CIVIL ENGINEERING)</h3>
                                         <p class="text-md font-medium text-gray-700">IIT Roorkee</p>
                                     </div>
@@ -811,64 +873,57 @@
                 </div>
             </section>
 
-            <!-- Certifications Section -->
-            <section class="mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Certifications</h2>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Product-led Certified</span>
-                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">AI for Product Management</span>
-                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Product Analytics Certified</span>
-                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Agile Project Management</span>
-                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">'Me to We' by Dale Carnegie</span>
-                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Google Analytics (Beginners)</span>
-                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Six Sigma Green Belt, KPMG</span>
-                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Business Analytics with Excel</span>
-                    <span class="bg-emerald-200 text-emerald-900 text-sm font-400 px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Digital Transformation</span>
-                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Introduction to AI</span>
-                    <span class="bg-emerald-200 text-emerald-900 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-emerald-300 transition-colors duration-200">Introduction to Data Analytics</span>
-                </div>
+            <!-- Tools & Platforms Section -->
+            <section class="mb-12 p-6 bg-white rounded-lg shadow-md">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Tools & Platforms</h2>
+                <ul class="compact-section-list">
+                    <li>Salesforce (Sales, Service, Marketing & Data Cloud)</li>
+                    <li>LeadSquared</li>
+                    <li>Google Analytics</li>
+                    <li>SQL</li>
+                    <li>HTML (Basics)</li>
+                    <li>Jira & Confluence</li>
+                    <li>Miro, Lucid, Draw.io</li>
+                    <li>Google & Microsoft Office suite</li>
+                </ul>
             </section>
 
-            <!-- Tools & Platforms Section -->
-            <section class="mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Tools & Platforms</h2>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
-                        <p class="text-xs sm:text-sm md:text-base font-medium text-teal-800">Salesforce (Sales, Service, Marketing & Data Cloud)</p>
-                    </div>
-                    <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
-                        <p class="text-xs sm:text-sm md:text-base font-medium text-teal-800">LeadSquared</p>
-                    </div>
-                    <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
-                        <p class="text-xs sm:text-sm md:text-base font-medium text-teal-800">Google Analytics</p>
-                    </div>
-                    <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
-                        <p class="text-xs sm:text-sm md:text-base font-medium text-teal-800">SQL</p>
-                    </div>
-                    <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
-                        <p class="text-xs sm:text-sm md:text-base font-medium text-teal-800">HTML (Basics)</p>
-                    </div>
-                    <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
-                        <p class="text-xs sm:text-sm md:text-base font-medium text-teal-800">Jira & Confluence</p>
-                    </div>
-                    <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
-                        <p class="text-xs sm:text-sm md:text-base font-medium text-teal-800">Miro, Lucid, Draw.io</p>
-                    </div>
-                    <div class="bg-teal-100 p-4 rounded-lg shadow-sm text-center hover:bg-teal-200 transition-colors duration-200">
-                        <p class="text-xs sm:text-sm md:text-base font-medium text-teal-800">Google & Microsoft Office suite</p>
-                    </div>
-                </div>
+            <!-- Certifications Section -->
+            <section class="mb-12 p-6 bg-white rounded-lg shadow-md">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Certifications</h2>
+                <ul class="compact-section-list">
+                    <li>Product-led Certified</li>
+                    <li>AI for Product Management</li>
+                    <li>Product Analytics Certified</li>
+                    <li>Agile Project Management</li>
+                    <li>'Me to We' by Dale Carnegie</li>
+                    <li>Google Analytics (Beginners)</li>
+                    <li>Six Sigma Green Belt, KPMG</li>
+                    <li>Business Analytics with Excel</li>
+                    <li>Digital Transformation</li>
+                    <li>Introduction to AI</li>
+                    <li>Introduction to Data Analytics</li>
+                </ul>
             </section>
 
             <!-- CV Download Section -->
             <section class="mb-8 p-6 bg-purple-100 rounded-lg shadow-md text-center">
                 <h2 class="text-3xl font-bold text-gray-800 mb-6">Seems like a good fit?</h2>
                 <a href="https://raw.githubusercontent.com/rishabh2198/rishabh-profile/main/CV_Rishabh Singla.pdf" download="Rishabh_Singla_CV.pdf" 
-                   class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors duration-200">
+                   class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-600 transition-colors duration-200">
                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     Download Rishabh's CV (PDF)
                 </a>
             </section>
+
+            <!-- Future Aspirations Section -->
+            <section class="mb-8 p-6 bg-gray-100 rounded-lg shadow-md">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Future Aspirations</h2>
+                <p class="text-gray-700 text-base sm:text-lg text-center">
+                    Rishabh is seeking challenging leadership roles in Product or Business Consulting, particularly in dynamic environments leveraging AI and advanced technologies to drive significant business growth and efficiency. He is keen on opportunities that allow him to combine strategic thinking with hands-on implementation to solve complex problems and build innovative solutions.
+                </p>
+            </section>
+
         </main>
 
         <!-- Hidden section for AI's extended knowledge base -->
@@ -1054,39 +1109,147 @@
 
                 // Extract relevant text from the profile for context
                 const profileSummary = document.querySelector('header p').textContent;
-                const currentRoleDetails = document.getElementById('current-role-content').innerText;
-                const recentExperienceDetails = document.getElementById('recent-experience-content').innerText;
-                const earlyCareerEducationDetails = document.getElementById('early-career-education-content').innerText;
-                const certificationsText = document.querySelector('section:nth-of-type(2)').innerText;
-                const toolsText = document.querySelector('section:nth-of-type(3)').innerText;
+                // Use a more targeted approach to extract visible content for the AI context
+                let visibleProfileContent = '';
+                visibleProfileContent += `Overall Summary: ${profileSummary}\n\n`;
 
-                // Get content from the hidden detailed profile section
+                // Key Achievements
+                const keyAchievementsList = document.querySelector('section:first-of-type ul');
+                if (keyAchievementsList) {
+                    visibleProfileContent += 'Key Achievements:\n';
+                    Array.from(keyAchievementsList.children).forEach(li => {
+                        visibleProfileContent += `- ${li.textContent.trim()}\n`;
+                    });
+                    visibleProfileContent += '\n';
+                }
+
+                // Current Role
+                const currentRoleBlock = document.querySelector('#current-role-content .current-role-block');
+                if (currentRoleBlock) {
+                    visibleProfileContent += `Current Role: ${currentRoleBlock.querySelector('h3').textContent.trim()} at ${currentRoleBlock.querySelector('p:nth-of-type(1)').textContent.trim()} (${currentRoleBlock.querySelector('p:nth-of-type(2)').textContent.trim()})\n`;
+                    const responsibilities = currentRoleBlock.querySelector('h4:nth-of-type(1) + ul');
+                    if (responsibilities) {
+                        visibleProfileContent += '  Responsibilities:\n';
+                        Array.from(responsibilities.children).forEach(li => {
+                            visibleProfileContent += `  - ${li.textContent.trim()}\n`;
+                        });
+                    }
+                    const achievement = currentRoleBlock.querySelector('h4:nth-of-type(2) + ul');
+                    if (achievement) {
+                        visibleProfileContent += '  Achievement:\n';
+                        Array.from(achievement.children).forEach(li => {
+                            visibleProfileContent += `  - ${li.textContent.trim()}\n`;
+                        });
+                    }
+                    visibleProfileContent += '\n';
+                }
+
+                // Recent Experience
+                const recentExperienceItems = document.querySelectorAll('#recent-experience-content .timeline-item');
+                if (recentExperienceItems.length > 0) {
+                    visibleProfileContent += 'Recent Experience:\n';
+                    recentExperienceItems.forEach(item => {
+                        // Prioritize desktop view for content extraction if available
+                        let title = '', company = '', dates = '', details = '';
+                        const desktopContent = item.querySelector('.timeline-content-desktop');
+                        const mobileContent = item.querySelector('.timeline-content-mobile');
+
+                        if (desktopContent && getComputedStyle(desktopContent).display !== 'none') {
+                            title = desktopContent.querySelector('h3').textContent.trim();
+                            company = desktopContent.querySelector('p:nth-of-type(1)').textContent.trim();
+                            dates = item.querySelector('.timeline-date-desktop').textContent.trim();
+                            const ul = desktopContent.querySelector('ul');
+                            if (ul) details = Array.from(ul.children).map(li => li.textContent.trim()).join('; ');
+                        } else if (mobileContent && getComputedStyle(mobileContent).display !== 'none') {
+                            title = mobileContent.querySelector('h3').textContent.trim();
+                            company = mobileContent.querySelector('p:nth-of-type(1)').textContent.trim();
+                            dates = item.querySelector('.timeline-mobile-wrapper span').textContent.trim();
+                            const ul = mobileContent.querySelector('ul');
+                            if (ul) details = Array.from(ul.children).map(li => li.textContent.trim()).join('; ');
+                        }
+
+                        visibleProfileContent += `- ${title} at ${company} (${dates})\n`;
+                        if (details) {
+                            details.split('; ').forEach(point => {
+                                visibleProfileContent += `  - ${point}\n`;
+                            });
+                        }
+                    });
+                    visibleProfileContent += '\n';
+                }
+
+                // Early Career & Education
+                const earlyCareerItems = document.querySelectorAll('#early-career-education-content .timeline-item');
+                if (earlyCareerItems.length > 0) {
+                    visibleProfileContent += 'Early Career & Education:\n';
+                    earlyCareerItems.forEach(item => {
+                        let title = '', institution = '', dates = '', details = '';
+                        const desktopContent = item.querySelector('.timeline-content-desktop');
+                        const mobileContent = item.querySelector('.timeline-content-mobile');
+
+                        if (desktopContent && getComputedStyle(desktopContent).display !== 'none') {
+                            title = desktopContent.querySelector('h3').textContent.trim();
+                            institution = desktopContent.querySelector('p:nth-of-type(1)').textContent.trim();
+                            dates = item.querySelector('.timeline-date-desktop').textContent.trim();
+                            const ul = desktopContent.querySelector('ul');
+                            if (ul) details = Array.from(ul.children).map(li => li.textContent.trim()).join('; ');
+                        } else if (mobileContent && getComputedStyle(mobileContent).display !== 'none') {
+                            title = mobileContent.querySelector('h3').textContent.trim();
+                            institution = mobileContent.querySelector('p:nth-of-type(1)').textContent.trim();
+                            dates = item.querySelector('.timeline-mobile-wrapper span').textContent.trim();
+                            const ul = mobileContent.querySelector('ul');
+                            if (ul) details = Array.from(ul.children).map(li => li.textContent.trim()).join('; ');
+                        }
+
+                        visibleProfileContent += `- ${title} at ${institution} (${dates})\n`;
+                        if (details) {
+                            details.split('; ').forEach(point => {
+                                visibleProfileContent += `  - ${point}\n`;
+                            });
+                        }
+                    });
+                    visibleProfileContent += '\n';
+                }
+                
+                // Tools & Platforms
+                const toolsList = document.querySelector('section:nth-of-type(3) .compact-section-list');
+                if (toolsList) {
+                    visibleProfileContent += 'Tools & Platforms:\n';
+                    Array.from(toolsList.children).forEach(li => {
+                        visibleProfileContent += `- ${li.textContent.trim()}\n`;
+                    });
+                    visibleProfileContent += '\n';
+                }
+
+                // Certifications
+                const certificationsList = document.querySelector('section:nth-of-type(4) .compact-section-list');
+                if (certificationsList) {
+                    visibleProfileContent += 'Certifications:\n';
+                    Array.from(certificationsList.children).forEach(li => {
+                        visibleProfileContent += `- ${li.textContent.trim()}\n`;
+                    });
+                    visibleProfileContent += '\n';
+                }
+
+                // Future Aspirations
+                const aspirationsText = document.querySelector('section:last-of-type p').textContent;
+                visibleProfileContent += `Future Aspirations: ${aspirationsText}\n`;
+
+                // Get content from the hidden detailed profile section for more context
                 const detailedProfileContent = document.getElementById('ai-detailed-profile').innerText;
 
                 const rishabhProfileText = `
-                    Professional Summary: ${profileSummary}
+                Here is Rishabh Singla's professional summary, experience, certifications, tools, and aspirations.
+                Please use this information to answer the user's questions.
 
-                    Current Role:
-                    ${currentRoleDetails}
+                ${visibleProfileContent}
 
-                    Recent Experience:
-                    ${recentExperienceDetails}
-
-                    Early Career & Education:
-                    ${earlyCareerEducationDetails}
-
-                    Certifications:
-                    ${certificationsText}
-
-                    Tools & Platforms:
-                    ${toolsText}
-
-                    --- Additional Detailed Information for AI ---
-                    ${detailedProfileContent}
+                --- Additional Detailed Information (For deeper context if needed, but prefer summary) ---
+                ${detailedProfileContent}
                 `;
 
                 const prompt = `You are an AI assistant tasked with answering questions about the professional profile of Rishabh Singla.
-                Only use the information provided below. If a question cannot be answered from the provided text, state that the information is not available in the profile.
+                Only use the information provided below. If a question cannot be answered from the provided text, state that the information is not available in the profile. Prioritize concise answers.
 
                 Rishabh Singla's Professional Profile:
                 ${rishabhProfileText}
@@ -1101,7 +1264,7 @@
                 const payload = { contents: chatHistory };
                 // When running in Canvas, leave this empty. Canvas injects the API key.
                 // For external deployment (e.g., GitHub Pages), replace "" with your actual Gemini API key.
-                const apiKey = "AIzaSyA_ValXA3MOh8F3OUPE6f8KUjT_bezyOlI"; 
+                const apiKey = "AIzaSyA_ValXA3MOh8F3OUPE6f8KUjT_bezyOlI"; // Remove your API key for submission to Canvas. Canvas injects it.
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                 try {
