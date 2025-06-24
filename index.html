@@ -259,12 +259,20 @@
         /* New styles for compact Certifications and Tools */
         .compact-section-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive grid columns */
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Default responsive layout for smaller screens */
             gap: 0.75rem; /* Gap between grid items */
             list-style-type: none; /* Remove default list bullets */
             padding-left: 0;
             margin-bottom: 0; /* Remove default ul margin */
         }
+
+        /* Desktop specific grid for 4 items per row */
+        @media (min-width: 768px) {
+            .compact-section-list {
+                grid-template-columns: repeat(4, 1fr); /* Exactly 4 columns on desktop */
+            }
+        }
+
         .compact-section-list li {
             background-color: #FFFFFF; /* White background for list items */
             color: #2D3748; /* Dark grey text for list items */
@@ -272,15 +280,19 @@
             border-radius: 0.5rem; /* Slightly rounded corners */
             font-size: 0.9rem; /* Slightly larger font than chips */
             font-weight: 500;
-            text-align: center;
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12); /* Stronger shadow */
+            /* Flexbox for perfect vertical and horizontal centering */
+            display: flex;
+            align-items: center; /* Vertical centering */
+            justify-content: center; /* Horizontal centering */
+            text-align: center; /* Fallback and consistency */
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow */
             border: 1px solid #E0E0E0; /* Subtle border */
             transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
         }
         .compact-section-list li:hover {
             background-color: #F8FAFC; /* Very light background on hover */
             transform: translateY(-2px); /* Slight lift */
-            box-shadow: 0 7px 18px rgba(0, 0, 0, 0.18); /* Even more pronounced shadow on hover */
+            box-shadow: 0 7px 18px rgba(0, 0, 0, 0.22); /* Even more pronounced shadow on hover */
         }
         .section-heading-improved {
             text-3xl font-bold text-gray-800 mb-6 text-center
@@ -422,7 +434,7 @@
 <body class="p-4 sm:p-8 md:p-12 lg:p-16">
 
     <!-- Main Profile Content -->
-    <div id="profile-content" class="max-w-6xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+    <div id="profile-content" class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
         <!-- Header Section: Contact Info and Professional Summary -->
         <header class="bg-gradient-to-r from-blue-400 to-cyan-500 text-white p-6 sm:p-8 rounded-t-xl">
             <h1 class="text-4xl sm:text-5xl font-extrabold text-center mb-2 tracking-tight">RISHABH SINGLA</h1>
@@ -461,410 +473,411 @@
             <!-- Professional Journey Section (Timeline) -->
             <section class="mb-12 relative pb-8">
                 <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Professional Journey</h2>
-                
-                <div class="flex flex-wrap justify-center gap-4 mb-8" id="timeline-tabs">
-                    <button class="tab-button active" data-tab="current-role">Current Role</button>
-                    <button class="tab-button" data-tab="recent-experience">Recent Experience</button>
-                    <button class="tab-button" data-tab="early-career-education">Early Career & Education</button>
-                </div>
-
-                <div id="timeline-tab-contents">
-                    <!-- Current Role Tab Content (Single Block) -->
-                    <div class="tab-content active" id="current-role-content">
-                        <div class="bg-white p-6 rounded-lg shadow-md w-full current-role-block">
-                            <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 text-center">PRINCIPAL ARCHITECT</h3>
-                            <p class="text-lg sm:text-xl font-medium text-gray-700 mb-4 text-center">UNIVO Education (P) Ltd</p>
-                            <p class="text-md sm:text-lg font-semibold text-blue-700 mb-4 text-center">Aug 2024 - Present</p>
-                            <h4 class="text-xl font-bold text-gray-800 mt-6 mb-2 flex items-center">
-                                <!-- Icon for Key Responsibilities header -->
-                                <svg class="w-6 h-6 mr-2 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" clip-rule="evenodd"></path>
-                                </svg>
-                                Key Responsibilities:
-                            </h4>
-                            <ul class="text-gray-700 text-base sm:text-lg space-y-3 pl-0">
-                                <li class="flex items-start">
-                                    <!-- Icon for Complete Contact Center Management -->
-                                    <svg class="w-5 h-5 mr-2 mt-1 text-cyan-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.977-1.405L2 17l1.109-3.415A9.742 9.742 0 012 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9a1 1 0 100-2 1 1 0 000 2zm.059 2.25l-.262-.262a2 2 0 01-.166-2.585L7 8c.365-.733.993-1.361 1.726-1.726.733-.365 1.564-.492 2.408-.387a2 2 0 012.355 1.542l.262.262A2 2 0 0115 11l-.059.25a2 2 0 01-2.355-1.542zM13 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <div>
-                                        <span class="font-bold">Complete Contact Center Management</span>
-                                        <ul class="mt-1 ml-5 space-y-2 pl-0">
-                                            <li class="flex items-start">
-                                                <!-- Icon for CRM -->
-                                                <svg class="w-4 h-4 mr-1 mt-1 text-sky-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
-                                                </svg>
-                                                <div><strong class="font-medium">CRM:</strong> optimised architecture; reduced request processing time by 60%</div>
-                                            </li>
-                                            <li class="flex items-start">
-                                                <!-- Icon for Dialer -->
-                                                <svg class="w-4 h-4 mr-1 mt-1 text-sky-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06L6.5 9.146a1 1 0 00-.451 1.059l.685 1.849a1 1 0 001.094 1.223l3.228-.609a1 1 0 001.094-1.223l-.685-1.849a1 1 0 00-.451-1.059l1.458-.73a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
-                                                </svg>
-                                                <div><strong class="font-medium">Dialer:</strong> Implemented new dialer and revamped business process; increased churn rate and speed-to-dial by 80%+</div>
-                                            </li>
-                                            <li class="flex items-start">
-                                                <!-- Icon for Gen AI Initiatives -->
-                                                <svg class="w-4 h-4 mr-1 mt-1 text-sky-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-                                                </svg>
-                                                <div>
-                                                    <strong class="font-medium">Gen AI Initiatives:</strong> amongst top-3 identified resources to lead
-                                                    <ul class="mt-1 ml-5 space-y-2 pl-0">
-                                                        <li class="flex items-start">
-                                                            <!-- Icon for WhatsApp onboarding -->
-                                                            <svg class="w-4 h-4 mr-1 mt-1 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                                <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-4l-4 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></path>
-                                                            </svg>
-                                                            Customer onboarding journey on WhatsApp for non-assisted sales; contributing to 75% of organic conversions
-                                                        </li>
-                                                        <li class="flex items-start">
-                                                            <!-- Icon for Voice Bot -->
-                                                            <svg class="w-4 h-4 mr-1 mt-1 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                                <path fill-rule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0 5 5 0 01-5 5v1.085l-.375.375A2 2 0 018 16v1H6v-1a2 2 0 01-1.625-1.92L4 12.915V12a1 1 0 10-2 0v.915L2.375 14.92A4 4 0 006 18v1H3a1 1 0 100 2h14a1 1 0 100-2h-3v-1a4 4 0 003.625-3.08L18 12.915V12a1 1 0 10-2 0v.915l-.375.375A7.001 7.001 0 0011 10.93V4a1 1 0 10-2 0v6.93z" clip-rule="evenodd"></path>
-                                                            </svg>
-                                                            Implemented Voice Bot solutions; bringing in efficiency of ~60% in Support & ~40% in Sales process
-                                                        </li>
-                                                        <li class="flex items-start">
-                                                            <!-- Icon for Lead profiling -->
-                                                            <svg class="w-4 h-4 mr-1 mt-1 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
-                                                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057 .458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
-                                                            </svg>
-                                                            Lead profiling and scoring for enhancing sales efficiency; aiming to achieve 25% efficiency in Phase-1
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                            <h4 class="text-xl font-bold text-gray-800 mt-6 mb-2 flex items-center">
-                                <!-- Icon for Achievement header -->
-                                <svg class="w-6 h-6 mr-2 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                Achievement
-                            </h4>
-                            <ul class="text-gray-700 text-base sm:text-lg space-y-2 pl-0">
-                                <li class="flex items-start">
-                                    <!-- Icon for specific achievement -->
-                                    <svg class="w-5 h-5 mr-2 mt-1 text-emerald-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-7-8a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm6-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H9a1 1 0 01-1-1V8zm-6 4a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm6 0a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H9a1 1 0 01-1-1v-2z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <div>Awarded for exemplary performance for 2 consecutive quarters.</div>
-                                </li>
-                            </ul>
-                        </div>
+                <div class="max-w-4xl mx-auto"> <!-- Wrapper for timeline content -->
+                    <div class="flex flex-wrap justify-center gap-4 mb-8" id="timeline-tabs">
+                        <button class="tab-button active" data-tab="current-role">Current Role</button>
+                        <button class="tab-button" data-tab="recent-experience">Recent Experience</button>
+                        <button class="tab-button" data-tab="early-career-education">Early Career & Education</button>
                     </div>
 
-                    <!-- Recent Experience Tab Content (Timeline) -->
-                    <div class="tab-content" id="recent-experience-content">
-                        <div id="timeline-container-recent" class="relative">
-                            <!-- BUSINESS CONSULTANT | TechMatrix IT Consulting (P) Ltd -->
-                            <div class="timeline-item">
-                                <div class="timeline-dot-desktop">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                      <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                    <div id="timeline-tab-contents">
+                        <!-- Current Role Tab Content (Single Block) -->
+                        <div class="tab-content active" id="current-role-content">
+                            <div class="bg-white p-6 rounded-lg shadow-md w-full current-role-block">
+                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 text-center">PRINCIPAL ARCHITECT</h3>
+                                <p class="text-lg sm:text-xl font-medium text-gray-700 mb-4 text-center">UNIVO Education (P) Ltd</p>
+                                <p class="text-md sm:text-lg font-semibold text-blue-700 mb-4 text-center">Aug 2024 - Present</p>
+                                <h4 class="text-xl font-bold text-gray-800 mt-6 mb-2 flex items-center">
+                                    <!-- Icon for Key Responsibilities header -->
+                                    <svg class="w-6 h-6 mr-2 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" clip-rule="evenodd"></path>
                                     </svg>
-                                </div>
-                                <!-- Content on the right for first item -->
-                                <div class="timeline-side timeline-left-side hidden md:flex"></div>
-                                <div class="timeline-side timeline-right-side">
-                                    <!-- Mobile View -->
-                                    <div class="timeline-mobile-wrapper md:hidden">
-                                        <div class="timeline-mobile-dot">
-                                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                              <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
-                                    </svg>
+                                    Key Responsibilities:
+                                </h4>
+                                <ul class="text-gray-700 text-base sm:text-lg space-y-3 pl-0">
+                                    <li class="flex items-start">
+                                        <!-- Icon for Complete Contact Center Management -->
+                                        <svg class="w-5 h-5 mr-2 mt-1 text-cyan-700 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.977-1.405L2 17l1.109-3.415A9.742 9.742 0 012 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9a1 1 0 100-2 1 1 0 000 2zm.059 2.25l-.262-.262a2 2 0 01-.166-2.585L7 8c.365-.733.993-1.361 1.726-1.726.733-.365 1.564-.492 2.408-.387a2 2 0 012.355 1.542l.262.262A2 2 0 0115 11l-.059.25a2 2 0 01-2.355-1.542zM13 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <div>
+                                            <span class="font-bold">Complete Contact Center Management</span>
+                                            <ul class="mt-1 ml-5 space-y-2 pl-0">
+                                                <li class="flex items-start">
+                                                    <!-- Icon for CRM -->
+                                                    <svg class="w-4 h-4 mr-1 mt-1 text-sky-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                    <div><strong class="font-medium">CRM:</strong> optimised architecture; reduced request processing time by 60%</div>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <!-- Icon for Dialer -->
+                                                    <svg class="w-4 h-4 mr-1 mt-1 text-sky-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06L6.5 9.146a1 1 0 00-.451 1.059l.685 1.849a1 1 0 001.094 1.223l3.228-.609a1 1 0 001.094-1.223l-.685-1.849a1 1 0 00-.451-1.059l1.458-.73a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                                                    </svg>
+                                                    <div><strong class="font-medium">Dialer:</strong> Implemented new dialer and revamped business process; increased churn rate and speed-to-dial by 80%+</div>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <!-- Icon for Gen AI Initiatives -->
+                                                    <svg class="w-4 h-4 mr-1 mt-1 text-sky-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                    <div>
+                                                        <strong class="font-medium">Gen AI Initiatives:</strong> amongst top-3 identified resources to lead
+                                                        <ul class="mt-1 ml-5 space-y-2 pl-0">
+                                                            <li class="flex items-start">
+                                                                <!-- Icon for WhatsApp onboarding -->
+                                                                <svg class="w-4 h-4 mr-1 mt-1 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-4l-4 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></path>
+                                                                </svg>
+                                                                Customer onboarding journey on WhatsApp for non-assisted sales; contributing to 75% of organic conversions
+                                                            </li>
+                                                            <li class="flex items-start">
+                                                                <!-- Icon for Voice Bot -->
+                                                                <svg class="w-4 h-4 mr-1 mt-1 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path fill-rule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0 5 5 0 01-5 5v1.085l-.375.375A2 2 0 018 16v1H6v-1a2 2 0 01-1.625-1.92L4 12.915V12a1 1 0 10-2 0v.915L2.375 14.92A4 4 0 006 18v1H3a1 1 0 100 2h14a1 1 0 100-2h-3v-1a4 4 0 003.625-3.08L18 12.915V12a1 1 0 10-2 0v.915l-.375.375A7.001 7.001 0 0011 10.93V4a1 1 0 10-2 0v6.93z" clip-rule="evenodd"></path>
+                                                                </svg>
+                                                                Implemented Voice Bot solutions; bringing in efficiency of ~60% in Support & ~40% in Sales process
+                                                            </li>
+                                                            <li class="flex items-start">
+                                                                <!-- Icon for Lead profiling -->
+                                                                <svg class="w-4 h-4 mr-1 mt-1 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                                                                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057 .458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
+                                                                </svg>
+                                                                Lead profiling and scoring for enhancing sales efficiency; aiming to achieve 25% efficiency in Phase-1
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <span class="text-lg font-semibold text-blue-700">Jul 2023 - Aug 2024</span>
-                                    </div>
-                                    <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
-                                        <h3 class="text-xl font-bold text-gray-900">BUSINESS CONSULTANT</h3>
-                                        <p class="text-md font-medium text-gray-700">TechMatrix IT Consulting (P) Ltd</p>
-                                        <ul class="list-none text-gray-700 mt-2 pl-0">
-                                            <li>Formally appreciated by all customers for outstanding contribution.</li>
-                                        </ul>
-                                    </div>
-
-                                    <!-- Desktop View -->
-                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jul 2023 - Aug 2024</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
-                                        <h3 class="text-xl font-bold text-gray-900">BUSINESS CONSULTANT</h3>
-                                        <p class="text-md font-medium text-gray-700">TechMatrix IT Consulting (P) Ltd</p>
-                                        <ul class="list-none text-gray-700 mt-2 pl-0">
-                                            <li>Formally appreciated by all customers for outstanding contribution.</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                    </li>
+                                </ul>
+                                <h4 class="text-xl font-bold text-gray-800 mt-6 mb-2 flex items-center">
+                                    <!-- Icon for Achievement header -->
+                                    <svg class="w-6 h-6 mr-2 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Achievement
+                                </h4>
+                                <ul class="text-gray-700 text-base sm:text-lg space-y-2 pl-0">
+                                    <li class="flex items-start">
+                                        <!-- Icon for specific achievement -->
+                                        <svg class="w-5 h-5 mr-2 mt-1 text-emerald-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-7-8a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm6-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H9a1 1 0 01-1-1V8zm-6 4a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm6 0a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H9a1 1 0 01-1-1v-2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <div>Awarded for exemplary performance for 2 consecutive quarters.</div>
+                                    </li>
+                                </ul>
                             </div>
+                        </div>
 
-                            <!-- PRODUCT MANAGER | OLX Autos -->
-                            <div class="timeline-item">
-                                <div class="timeline-dot-desktop">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                      <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <!-- Content on the left for second item -->
-                                <div class="timeline-side timeline-left-side">
-                                    <!-- Mobile View -->
-                                    <div class="timeline-mobile-wrapper md:hidden">
-                                        <div class="timeline-mobile-dot">
-                                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                              <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
-                                            </svg>
+                        <!-- Recent Experience Tab Content (Timeline) -->
+                        <div class="tab-content" id="recent-experience-content">
+                            <div id="timeline-container-recent" class="relative">
+                                <!-- BUSINESS CONSULTANT | TechMatrix IT Consulting (P) Ltd -->
+                                <div class="timeline-item">
+                                    <div class="timeline-dot-desktop">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                          <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <!-- Content on the right for first item -->
+                                    <div class="timeline-side timeline-left-side hidden md:flex"></div>
+                                    <div class="timeline-side timeline-right-side">
+                                        <!-- Mobile View -->
+                                        <div class="timeline-mobile-wrapper md:hidden">
+                                            <div class="timeline-mobile-dot">
+                                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                                  <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                                        </svg>
+                                            </div>
+                                            <span class="text-lg font-semibold text-blue-700">Jul 2023 - Aug 2024</span>
                                         </div>
-                                        <span class="text-lg font-semibold text-blue-700">Aug 2021 - Jun 2023</span>
-                                    </div>
-                                    <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
-                                        <h3 class="text-xl font-bold text-gray-900">PRODUCT MANAGER</h3>
-                                        <p class="text-md font-medium text-gray-700">OLX Autos</p>
-                                        <ul class="list-none text-gray-700 mt-2 pl-0">
-                                            <li>Received cash prize & appreciation for CRM launch across 2 countries.</li>
-                                        </ul>
-                                    </div>
-
-                                    <!-- Desktop View -->
-                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Aug 2021 - Jun 2023</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
-                                        <h3 class="text-xl font-bold text-gray-900">PRODUCT MANAGER</h3>
-                                        <p class="text-md font-medium text-gray-700">OLX Autos</p>
-                                        <ul class="list-none text-gray-700 mt-2 pl-0">
-                                            <li>Received cash prize & appreciation for CRM launch across 2 countries.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="timeline-side timeline-right-side hidden md:flex"></div>
-                            </div>
-
-                            <!-- SENIOR MANAGER - MARTECH | PVR Limited -->
-                            <div class="timeline-item">
-                                <div class="timeline-dot-desktop">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                      <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <!-- Content on the right for third item -->
-                                <div class="timeline-side timeline-left-side hidden md:flex"></div>
-                                <div class="timeline-side timeline-right-side">
-                                    <!-- Mobile View -->
-                                    <div class="timeline-mobile-wrapper md:hidden">
-                                        <div class="timeline-mobile-dot">
-                                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                              <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
-                                            </svg>
+                                        <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
+                                            <h3 class="text-xl font-bold text-gray-900">BUSINESS CONSULTANT</h3>
+                                            <p class="text-md font-medium text-gray-700">TechMatrix IT Consulting (P) Ltd</p>
+                                            <ul class="list-none text-gray-700 mt-2 pl-0">
+                                                <li>Formally appreciated by all customers for outstanding contribution.</li>
+                                            </ul>
                                         </div>
-                                        <span class="text-lg font-semibold text-blue-700">May 2021 - Aug 2021</span>
-                                    </div>
-                                    <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
-                                        <h3 class="text-xl font-bold text-gray-900">SENIOR MANAGER - MARTECH</h3>
-                                        <p class="text-md font-medium text-gray-700">PVR Limited</p>
-                                        <ul class="list-none text-gray-700 mt-2 pl-0">
-                                            <li>Unblocked and took the project live in record time.</li>
-                                        </ul>
-                                    </div>
 
-                                    <!-- Desktop View -->
-                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">May 2021 - Aug 2021</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
-                                        <h3 class="text-xl font-bold text-gray-900">SENIOR MANAGER - MARTECH</h3>
-                                        <p class="text-md font-medium text-gray-700">PVR Limited</p>
-                                        <ul class="list-none text-gray-700 mt-2 pl-0">
-                                            <li>Unblocked and took the project live in record time.</li>
-                                        </ul>
+                                        <!-- Desktop View -->
+                                        <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jul 2023 - Aug 2024</div>
+                                        <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
+                                            <h3 class="text-xl font-bold text-gray-900">BUSINESS CONSULTANT</h3>
+                                            <p class="text-md font-medium text-gray-700">TechMatrix IT Consulting (P) Ltd</p>
+                                            <ul class="list-none text-gray-700 mt-2 pl-0">
+                                                <li>Formally appreciated by all customers for outstanding contribution.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- PRODUCT MANAGER | OLX Autos -->
+                                <div class="timeline-item">
+                                    <div class="timeline-dot-desktop">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                          <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <!-- Content on the left for second item -->
+                                    <div class="timeline-side timeline-left-side">
+                                        <!-- Mobile View -->
+                                        <div class="timeline-mobile-wrapper md:hidden">
+                                            <div class="timeline-mobile-dot">
+                                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                                  <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                            <span class="text-lg font-semibold text-blue-700">Aug 2021 - Jun 2023</span>
+                                        </div>
+                                        <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
+                                            <h3 class="text-xl font-bold text-gray-900">PRODUCT MANAGER</h3>
+                                            <p class="text-md font-medium text-gray-700">OLX Autos</p>
+                                            <ul class="list-none text-gray-700 mt-2 pl-0">
+                                                <li>Received cash prize & appreciation for CRM launch across 2 countries.</li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- Desktop View -->
+                                        <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Aug 2021 - Jun 2023</div>
+                                        <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
+                                            <h3 class="text-xl font-bold text-gray-900">PRODUCT MANAGER</h3>
+                                            <p class="text-md font-medium text-gray-700">OLX Autos</p>
+                                            <ul class="list-none text-gray-700 mt-2 pl-0">
+                                                <li>Received cash prize & appreciation for CRM launch across 2 countries.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-side timeline-right-side hidden md:flex"></div>
+                                </div>
+
+                                <!-- SENIOR MANAGER - MARTECH | PVR Limited -->
+                                <div class="timeline-item">
+                                    <div class="timeline-dot-desktop">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                          <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <!-- Content on the right for third item -->
+                                    <div class="timeline-side timeline-left-side hidden md:flex"></div>
+                                    <div class="timeline-side timeline-right-side">
+                                        <!-- Mobile View -->
+                                        <div class="timeline-mobile-wrapper md:hidden">
+                                            <div class="timeline-mobile-dot">
+                                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                                  <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                            <span class="text-lg font-semibold text-blue-700">May 2021 - Aug 2021</span>
+                                        </div>
+                                        <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
+                                            <h3 class="text-xl font-bold text-gray-900">SENIOR MANAGER - MARTECH</h3>
+                                            <p class="text-md font-medium text-gray-700">PVR Limited</p>
+                                            <ul class="list-none text-gray-700 mt-2 pl-0">
+                                                <li>Unblocked and took the project live in record time.</li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- Desktop View -->
+                                        <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">May 2021 - Aug 2021</div>
+                                        <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
+                                            <h3 class="text-xl font-bold text-gray-900">SENIOR MANAGER - MARTECH</h3>
+                                            <p class="text-md font-medium text-gray-700">PVR Limited</p>
+                                            <ul class="list-none text-gray-700 mt-2 pl-0">
+                                                <li>Unblocked and took the project live in record time.</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Early Career & Education Tab Content (Timeline) -->
-                    <div class="tab-content" id="early-career-education-content">
-                        <div id="timeline-container-early" class="relative">
-                            <!-- MANAGER - BUSINESS | NIIT Ltd. -->
-                            <div class="timeline-item">
-                                <div class="timeline-dot-desktop">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                      <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <!-- Content on the right for first item -->
-                                <div class="timeline-side timeline-left-side hidden md:flex"></div>
-                                <div class="timeline-side timeline-right-side">
-                                    <!-- Mobile View -->
-                                    <div class="timeline-mobile-wrapper md:hidden">
-                                        <div class="timeline-mobile-dot">
-                                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                              <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
-                                            </svg>
+                        <!-- Early Career & Education Tab Content (Timeline) -->
+                        <div class="tab-content" id="early-career-education-content">
+                            <div id="timeline-container-early" class="relative">
+                                <!-- MANAGER - BUSINESS | NIIT Ltd. -->
+                                <div class="timeline-item">
+                                    <div class="timeline-dot-desktop">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                          <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <!-- Content on the right for first item -->
+                                    <div class="timeline-side timeline-left-side hidden md:flex"></div>
+                                    <div class="timeline-side timeline-right-side">
+                                        <!-- Mobile View -->
+                                        <div class="timeline-mobile-wrapper md:hidden">
+                                            <div class="timeline-mobile-dot">
+                                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                                  <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                            <span class="text-lg font-semibold text-blue-700">Jun 2016 - Apr 2021</span>
                                         </div>
-                                        <span class="text-lg font-semibold text-blue-700">Jun 2016 - Apr 2021</span>
-                                    </div>
-                                    <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
-                                        <h3 class="text-xl font-bold text-gray-900">MANAGER - BUSINESS</h3>
-                                        <p class="text-md font-medium text-gray-700">NIIT Ltd. - Career Education Business</p>
-                                        <ul class="list-none text-gray-700 mt-2 pl-0">
-                                            <li>Part of core team of CEO & President.</li>
-                                        </ul>
-                                    </div>
-
-                                    <!-- Desktop View -->
-                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jun 2016 - Apr 2021</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
-                                        <h3 class="text-xl font-bold text-gray-900">MANAGER - BUSINESS</h3>
-                                        <p class="text-md font-medium text-gray-700">NIIT Ltd. - Career Education Business</p>
-                                        <ul class="list-none text-gray-700 mt-2 pl-0">
-                                            <li>Part of core team of CEO & President.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- XLRI - Jamshedpur (Education) -->
-                            <div class="timeline-item">
-                                <div class="timeline-dot-desktop">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                        <path d="M10 2a4 4 0 00-4 4v2.5a.5.5 0 00.5.5H8v1.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V9h2a.5.5 0 00.5-.5V6a4 4 0 00-4-4zm0 2a2 2 0 00-2 2v.5h4V6a2 2 0 00-2-2zM4.5 10a.5.5 0 01.5-.5h10a.5.5 0 01.5.5v6.5a.5.5 0 01-.5.5H5a.5.5 0 01-.5-.5V10zM10 14.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-                                    </svg>
-                                </div>
-                                <!-- Content on the left for second item -->
-                                <div class="timeline-side timeline-left-side">
-                                    <!-- Mobile View -->
-                                    <div class="timeline-mobile-wrapper md:hidden">
-                                        <div class="timeline-mobile-dot">
-                                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                                <path d="M10 2a4 4 0 00-4 4v2.5a.5.5 0 00.5.5H8v1.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V9h2a.5.5 0 00.5-.5V6a4 4 0 00-4-4zm0 2a2 2 0 00-2 2v.5h4V6a2 2 0 00-2-2zM4.5 10a.5.5 0 01.5-.5h10a.5.5 0 01.5.5v6.5a.5.5 0 01-.5.5H5a.5.5 0 01-.5-.5V10zM10 14.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-                                            </svg>
+                                        <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
+                                            <h3 class="text-xl font-bold text-gray-900">MANAGER - BUSINESS</h3>
+                                            <p class="text-md font-medium text-gray-700">NIIT Ltd. - Career Education Business</p>
+                                            <ul class="list-none text-gray-700 mt-2 pl-0">
+                                                <li>Part of core team of CEO & President.</li>
+                                            </ul>
                                         </div>
-                                        <span class="text-lg font-semibold text-blue-700">Jun 2015 - Jul 2016</span>
-                                    </div>
-                                    <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
-                                        <h3 class="text-xl font-bold text-gray-900">POST GRADUATE DIPLOMA IN GENERAL MANAGEMENT (MBA)</h3>
-                                        <p class="text-md font-medium text-gray-700">XLRI - Jamshedpur</p>
-                                    </div>
 
-                                    <!-- Desktop View -->
-                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jun 2015 - Jul 2016</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
-                                        <h3 class="text-xl font-bold text-gray-900">POST GRADUATE DIPLOMA IN GENERAL MANAGEMENT (MBA)</h3>
-                                        <p class="text-md font-medium text-gray-700">XLRI - Jamshedpur</p>
-                                    </div>
-                                </div>
-                                <div class="timeline-side timeline-right-side hidden md:flex"></div>
-                            </div>
-
-                            <!-- PROJECT MANAGER | Rays Power Experts (P) Ltd -->
-                            <div class="timeline-item">
-                                <div class="timeline-dot-desktop">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                      <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <!-- Content on the right for third item -->
-                                <div class="timeline-side timeline-left-side hidden md:flex"></div>
-                                <div class="timeline-side timeline-right-side">
-                                    <!-- Mobile View -->
-                                    <div class="timeline-mobile-wrapper md:hidden">
-                                        <div class="timeline-mobile-dot">
-                                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                              <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
-                                            </svg>
+                                        <!-- Desktop View -->
+                                        <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jun 2016 - Apr 2021</div>
+                                        <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
+                                            <h3 class="text-xl font-bold text-gray-900">MANAGER - BUSINESS</h3>
+                                            <p class="text-md font-medium text-gray-700">NIIT Ltd. - Career Education Business</p>
+                                            <ul class="list-none text-gray-700 mt-2 pl-0">
+                                                <li>Part of core team of CEO & President.</li>
+                                            </ul>
                                         </div>
-                                        <span class="text-lg font-semibold text-blue-700">Sep 2014 - May 2015</span>
-                                    </div>
-                                    <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
-                                        <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
-                                        <p class="text-md font-medium text-gray-700">Rays Power Experts (P) Ltd</p>
-                                        <ul class="list-none text-gray-700 mt-2 pl-0">
-                                            <li>Performance-based incentive within 3 months.</li>
-                                        </ul>
-                                    </div>
-
-                                    <!-- Desktop View -->
-                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Sep 2014 - May 2015</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
-                                        <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
-                                        <p class="text-md font-medium text-gray-700">Rays Power Experts (P) Ltd</p>
-                                        <ul class="list-none text-gray-700 mt-2 pl-0">
-                                            <li>Performance-based incentive within 3 months.</li>
-                                        </ul>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- NKG Infrastructures Ltd -->
-                            <div class="timeline-item">
-                                <div class="timeline-dot-desktop">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                      <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <!-- Content on the left for fourth item -->
-                                <div class="timeline-side timeline-left-side">
-                                    <!-- Mobile View -->
-                                    <div class="timeline-mobile-wrapper md:hidden">
-                                        <div class="timeline-mobile-dot">
-                                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                              <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
-                                            </svg>
+                                <!-- XLRI - Jamshedpur (Education) -->
+                                <div class="timeline-item">
+                                    <div class="timeline-dot-desktop">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                            <path d="M10 2a4 4 0 00-4 4v2.5a.5.5 0 00.5.5H8v1.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V9h2a.5.5 0 00.5-.5V6a4 4 0 00-4-4zm0 2a2 2 0 00-2 2v.5h4V6a2 2 0 00-2-2zM4.5 10a.5.5 0 01.5-.5h10a.5.5 0 01.5.5v6.5a.5.5 0 01-.5.5H5a.5.5 0 01-.5-.5V10zM10 14.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                                        </svg>
+                                    </div>
+                                    <!-- Content on the left for second item -->
+                                    <div class="timeline-side timeline-left-side">
+                                        <!-- Mobile View -->
+                                        <div class="timeline-mobile-wrapper md:hidden">
+                                            <div class="timeline-mobile-dot">
+                                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                                    <path d="M10 2a4 4 0 00-4 4v2.5a.5.5 0 00.5.5H8v1.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V9h2a.5.5 0 00.5-.5V6a4 4 0 00-4-4zm0 2a2 2 0 00-2 2v.5h4V6a2 2 0 00-2-2zM4.5 10a.5.5 0 01.5-.5h10a.5.5 0 01.5.5v6.5a.5.5 0 01-.5.5H5a.5.5 0 01-.5-.5V10zM10 14.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                                                </svg>
+                                            </div>
+                                            <span class="text-lg font-semibold text-blue-700">Jun 2015 - Jul 2016</span>
                                         </div>
-                                        <span class="text-lg font-semibold text-blue-700">Jul 2010 - Aug 2014</span>
-                                    </div>
-                                    <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
-                                        <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
-                                        <p class="text-md font-medium text-gray-700">NKG Infrastructures Ltd</p>
-                                        <ul class="list-none text-gray-700 mt-2 pl-0">
-                                            <li>Promoted within 9 months and multiple performance incentives.</li>
-                                        </ul>
-                                    </div>
-
-                                    <!-- Desktop View -->
-                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jul 2010 - Aug 2014</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
-                                        <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
-                                        <p class="text-md font-medium text-gray-700">NKG Infrastructures Ltd</p>
-                                        <ul class="list-none text-gray-700 mt-2 pl-0">
-                                            <li>Promoted within 9 months and multiple performance incentives.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="timeline-side timeline-right-side hidden md:flex"></div>
-                            </div>
-
-                            <!-- IIT Roorkee (Education) -->
-                            <div class="timeline-item">
-                                <div class="timeline-dot-desktop">
-                                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                        <path d="M10 2a4 4 0 00-4 4v2.5a.5.5 0 00.5.5H8v1.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V9h2a.5.5 0 00.5-.5V6a4 4 0 00-4-4zm0 2a2 2 0 00-2 2v.5h4V6a2 2 0 00-2-2zM4.5 10a.5.5 0 01.5-.5h10a.5.5 0 01.5.5v6.5a.5.5 0 01-.5.5H5a.5.5 0 01-.5-.5V10zM10 14.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-                                    </svg>
-                                </div>
-                                <!-- Content on the right for fifth item -->
-                                <div class="timeline-side timeline-left-side hidden md:flex"></div>
-                                <div class="timeline-side timeline-right-side">
-                                    <!-- Mobile View -->
-                                    <div class="timeline-mobile-wrapper md:hidden">
-                                        <div class="timeline-mobile-dot">
-                                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                                <path d="M10 2a4 4 0 : 00-4 4v2.5a.5.5 0 00.5.5H8v1.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V9h2a.5.5 0 00.5-.5V6a4 4 0 00-4-4zm0 2a2 2 0 00-2 2v.5h4V6a2 2 0 00-2-2zM4.5 10a.5.5 0 01.5-.5h10a.5.5 0 01.5.5v6.5a.5.5 0 01-.5.5H5a.5.5 0 01-.5-.5V10zM10 14.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-                                    </svg>
+                                        <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
+                                            <h3 class="text-xl font-bold text-gray-900">POST GRADUATE DIPLOMA IN GENERAL MANAGEMENT (MBA)</h3>
+                                            <p class="text-md font-medium text-gray-700">XLRI - Jamshedpur</p>
                                         </div>
-                                        <span class="text-lg font-semibold text-blue-700">Jun 2006 - May 2010</span>
-                                    </div>
-                                    <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
-                                        <h3 class="text-xl font-bold text-gray-900">BACHELOR OF TECHNOLOGY (CIVIL ENGINEERING)</h3>
-                                        <p class="text-md font-medium text-gray-700">IIT Roorkee</p>
-                                    </div>
 
-                                    <!-- Desktop View -->
-                                    <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jun 2006 - May 2010</div>
-                                    <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
-                                        <h3 class="text-xl font-bold text-gray-900">BACHELOR OF TECHNOLOGY (CIVIL ENGINEERING)</h3>
-                                        <p class="text-md font-medium text-gray-700">IIT Roorkee</p>
+                                        <!-- Desktop View -->
+                                        <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jun 2015 - Jul 2016</div>
+                                        <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
+                                            <h3 class="text-xl font-bold text-gray-900">POST GRADUATE DIPLOMA IN GENERAL MANAGEMENT (MBA)</h3>
+                                            <p class="text-md font-medium text-gray-700">XLRI - Jamshedpur</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-side timeline-right-side hidden md:flex"></div>
+                                </div>
+
+                                <!-- PROJECT MANAGER | Rays Power Experts (P) Ltd -->
+                                <div class="timeline-item">
+                                    <div class="timeline-dot-desktop">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                          <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <!-- Content on the right for third item -->
+                                    <div class="timeline-side timeline-left-side hidden md:flex"></div>
+                                    <div class="timeline-side timeline-right-side">
+                                        <!-- Mobile View -->
+                                        <div class="timeline-mobile-wrapper md:hidden">
+                                            <div class="timeline-mobile-dot">
+                                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                                  <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                            <span class="text-lg font-semibold text-blue-700">Sep 2014 - May 2015</span>
+                                        </div>
+                                        <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
+                                            <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
+                                            <p class="text-md font-medium text-gray-700">Rays Power Experts (P) Ltd</p>
+                                            <ul class="list-none text-gray-700 mt-2 pl-0">
+                                                <li>Performance-based incentive within 3 months.</li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- Desktop View -->
+                                        <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Sep 2014 - May 2015</div>
+                                        <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
+                                            <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
+                                            <p class="text-md font-medium text-gray-700">Rays Power Experts (P) Ltd</p>
+                                            <ul class="list-none text-gray-700 mt-2 pl-0">
+                                                <li>Performance-based incentive within 3 months.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- NKG Infrastructures Ltd -->
+                                <div class="timeline-item">
+                                    <div class="timeline-dot-desktop">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                          <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <!-- Content on the left for fourth item -->
+                                    <div class="timeline-side timeline-left-side">
+                                        <!-- Mobile View -->
+                                        <div class="timeline-mobile-wrapper md:hidden">
+                                            <div class="timeline-mobile-dot">
+                                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                                  <path fill-rule="evenodd" d="M2.928 2.067A2.5 2.5 0 00.5 4.5v11A2.5 2.5 0 002.928 18h14.144A2.5 2.5 0 0019.5 15.5v-11a2.5 2.5 0 00-2.428-2.433L16 2H4L2.928 2.067zM4 4h12l.857 2H3.143L4 4zm-.857 4h14.143L16 16H4L3.143 8z" clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                            <span class="text-lg font-semibold text-blue-700">Jul 2010 - Aug 2014</span>
+                                        </div>
+                                        <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
+                                            <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
+                                            <p class="text-md font-medium text-gray-700">NKG Infrastructures Ltd</p>
+                                            <ul class="list-none text-gray-700 mt-2 pl-0">
+                                                <li>Promoted within 9 months and multiple performance incentives.</li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- Desktop View -->
+                                        <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jul 2010 - Aug 2014</div>
+                                        <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
+                                            <h3 class="text-xl font-bold text-gray-900">PROJECT MANAGER</h3>
+                                            <p class="text-md font-medium text-gray-700">NKG Infrastructures Ltd</p>
+                                            <ul class="list-none text-gray-700 mt-2 pl-0">
+                                                <li>Promoted within 9 months and multiple performance incentives.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-side timeline-right-side hidden md:flex"></div>
+                                </div>
+
+                                <!-- IIT Roorkee (Education) -->
+                                <div class="timeline-item">
+                                    <div class="timeline-dot-desktop">
+                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                            <path d="M10 2a4 4 0 00-4 4v2.5a.5.5 0 00.5.5H8v1.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V9h2a.5.5 0 00.5-.5V6a4 4 0 00-4-4zm0 2a2 2 0 00-2 2v.5h4V6a2 2 0 00-2-2zM4.5 10a.5.5 0 01.5-.5h10a.5.5 0 01.5.5v6.5a.5.5 0 01-.5.5H5a.5.5 0 01-.5-.5V10zM10 14.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                                        </svg>
+                                    </div>
+                                    <!-- Content on the right for fifth item -->
+                                    <div class="timeline-side timeline-left-side hidden md:flex"></div>
+                                    <div class="timeline-side timeline-right-side">
+                                        <!-- Mobile View -->
+                                        <div class="timeline-mobile-wrapper md:hidden">
+                                            <div class="timeline-mobile-dot">
+                                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                                    <path d="M10 2a4 4 0 : 00-4 4v2.5a.5.5 0 00.5.5H8v1.5a.5.5 0 00.5.5h3a.5.5 0 00.5-.5V9h2a.5.5 0 00.5-.5V6a4 4 0 00-4-4zm0 2a2 2 0 00-2 2v.5h4V6a2 2 0 00-2-2zM4.5 10a.5.5 0 01.5-.5h10a.5.5 0 01.5.5v6.5a.5.5 0 01-.5.5H5a.5.5 0 01-.5-.5V10zM10 14.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                                        </svg>
+                                            </div>
+                                            <span class="text-lg font-semibold text-blue-700">Jun 2006 - May 2010</span>
+                                        </div>
+                                        <div class="timeline-content-mobile md:hidden bg-white p-6 rounded-lg shadow-md w-full">
+                                            <h3 class="text-xl font-bold text-gray-900">BACHELOR OF TECHNOLOGY (CIVIL ENGINEERING)</h3>
+                                            <p class="text-md font-medium text-gray-700">IIT Roorkee</p>
+                                        </div>
+
+                                        <!-- Desktop View -->
+                                        <div class="timeline-date-desktop hidden md:block text-lg font-semibold text-blue-700">Jun 2006 - May 2010</div>
+                                        <div class="timeline-content-desktop hidden md:block bg-white p-6 rounded-lg shadow-md w-full">
+                                            <h3 class="text-xl font-bold text-gray-900">BACHELOR OF TECHNOLOGY (CIVIL ENGINEERING)</h3>
+                                            <p class="text-md font-medium text-gray-700">IIT Roorkee</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -876,34 +889,39 @@
             <!-- Tools & Platforms Section -->
             <section class="mb-12 p-6 bg-white rounded-lg shadow-md">
                 <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Tools & Platforms</h2>
-                <ul class="compact-section-list">
-                    <li>Salesforce (Sales, Service, Marketing & Data Cloud)</li>
-                    <li>LeadSquared</li>
-                    <li>Google Analytics</li>
-                    <li>SQL</li>
-                    <li>HTML (Basics)</li>
-                    <li>Jira & Confluence</li>
-                    <li>Miro, Lucid, Draw.io</li>
-                    <li>Google & Microsoft Office suite</li>
-                </ul>
+                <div class="max-w-4xl mx-auto"> <!-- Added max-width and centering for the list -->
+                    <ul class="compact-section-list">
+                        <!-- Longer content first -->
+                        <li>Salesforce (Sales, Service, Marketing & Data Cloud)</li>
+                        <li>Google & Microsoft Office suite</li>
+                        <li>Jira & Confluence</li>
+                        <li>Miro, Lucid, Draw.io</li>
+                        <!-- Shorter content next -->
+                        <li>LeadSquared</li>
+                        <li>Google Analytics</li>
+                        <li>SQL</li>
+                        <li>HTML (Basics)</li>
+                    </ul>
+                </div>
             </section>
 
             <!-- Certifications Section -->
             <section class="mb-12 p-6 bg-white rounded-lg shadow-md">
                 <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Certifications</h2>
-                <ul class="compact-section-list">
-                    <li>Product-led Certified</li>
-                    <li>AI for Product Management</li>
-                    <li>Product Analytics Certified</li>
-                    <li>Agile Project Management</li>
-                    <li>'Me to We' by Dale Carnegie</li>
-                    <li>Google Analytics (Beginners)</li>
-                    <li>Six Sigma Green Belt, KPMG</li>
-                    <li>Business Analytics with Excel</li>
-                    <li>Digital Transformation</li>
-                    <li>Introduction to AI</li>
-                    <li>Introduction to Data Analytics</li>
-                </ul>
+                <div class="max-w-4xl mx-auto"> <!-- Added max-width and centering for the list -->
+                    <ul class="compact-section-list">
+                        <li>Product-led Certified</li>
+                        <li>AI for Product Management</li>
+                        <li>Product Analytics Certified</li>
+                        <li>Agile Project Management</li>
+                        <li>Google Analytics (Beginners)</li>
+                        <li>Six Sigma Green Belt, KPMG</li>
+                        <li>Business Analytics with Excel</li>
+                        <li>Digital Transformation</li>
+                        <li>Introduction to AI</li>
+                        <li>Introduction to Data Analytics</li>
+                    </ul>
+                </div>
             </section>
 
             <!-- CV Download Section -->
@@ -996,7 +1014,7 @@
                 <li>**LeadSquared:** Proficiency in using LeadSquared, likely for marketing automation and sales execution.</li>
                 <li>**Google Analytics:** Experienced in web analytics for tracking and reporting website traffic.</li>
                 <li>**SQL:** Strong skills in Structured Query Language for database querying and data manipulation.</li>
-                <li>**HTML (Basics):** Foundational understanding of HTML for web content structuring.</li>
+                <li>**HTML (Basics):</li
                 <li>**Jira & Confluence:** Extensive experience with Atlassian tools for project management, issue tracking (Jira), and collaborative documentation (Confluence).</li>
                 <li>**Miro, Lucid, Draw.io:** Proficient in using visual collaboration and diagramming tools for brainstorming, design, and process mapping.</li>
                 <li>**Google & Microsoft Office suite:** Standard proficiency in common office productivity applications.</li>
